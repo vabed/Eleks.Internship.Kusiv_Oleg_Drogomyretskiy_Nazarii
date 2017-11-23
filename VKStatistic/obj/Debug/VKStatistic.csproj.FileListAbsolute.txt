@@ -1,0 +1,13 @@
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\bin\Debug\VKStatistic.exe.config
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\bin\Debug\VKStatistic.exe
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\bin\Debug\VKStatistic.pdb
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.csprojResolveAssemblyReference.cache
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.AutorizationForm.resources
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.MainForm.resources
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.Properties.Resources.resources
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.csproj.GenerateResource.Cache
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.csproj.CoreCompileInputs.cache
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.exe
+C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.pdb
