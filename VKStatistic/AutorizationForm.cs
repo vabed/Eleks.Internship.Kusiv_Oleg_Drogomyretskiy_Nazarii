@@ -20,7 +20,7 @@ namespace VKStatistic
         private void AuthorizationForm_Load(object sender, EventArgs e)
         {
             GetToken.DocumentCompleted += GetToken_DocumentCompleted;
-            GetToken.Navigate("https://oauth.vk.com/authorize?client_id=6270016&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.52");
+            GetToken.Navigate("https://oauth.vk.com/authorize?client_id=6270016&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.69");
         }
         private void GetToken_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {

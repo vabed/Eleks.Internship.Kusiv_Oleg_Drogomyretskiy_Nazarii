@@ -54,5 +54,16 @@ namespace VKStatistic
             Dictionary<string, string> Dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(Result);
             return Dict["name"];
         }
+
+        //public string GetFriendsById(string FrendsId)
+        //{
+        //    HttpRequest GetFriendsById = new HttpRequest();
+        //    GetFriendsById.AddUrlParam("get", FrendsId);
+        //    GetFriendsById.AddUrlParam("access_token", _Token);
+        //    string Result = GetFriendsById.Get(__VKAPIURL + "Friends.get").ToString();
+        //    Result = Result.Substring(13, Result.Length - 15);
+        //    Dictionary<string, string> Dict = JsonConvert.DeserializeObject<Dictionary<string, string>>(Result);
+        //    return Dict["name"];
+        //}
     }
 }
