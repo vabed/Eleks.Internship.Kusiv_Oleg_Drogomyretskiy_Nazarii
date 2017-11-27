@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using xNet;
 using Newtonsoft.Json;
-
+// It is not good practise to just copypaste code (from here https://habrahabr.ru/post/314518/)
+// TODO: try to refactor this code(not only in this file, all copypasted code in project) 
+// Not mandatory: try to use this lib to work with VK API https://vknet.github.io/vk/
 namespace VKStatistic
 {
     class VkAPI

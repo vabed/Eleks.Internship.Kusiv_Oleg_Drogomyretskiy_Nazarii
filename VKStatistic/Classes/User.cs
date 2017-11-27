@@ -11,6 +11,8 @@ namespace VKStatistic.Classes
         public string Name { get; set; }
         public string SurName { get; set; }
         public int Age { get; set; }
+        // If you have interfaces, try to return them, code become mire flexible after it
+        // It's better to put this methods to special service which will work with VK API
         public Friend[] GetLastVisited() {
             throw new NotImplementedException();
         }

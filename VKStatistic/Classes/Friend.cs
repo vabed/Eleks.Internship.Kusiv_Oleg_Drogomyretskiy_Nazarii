@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//What is the difference between User and Friend classes? Maybe better solution will be add bool IsFriend mark for it.  
 namespace VKStatistic.Classes
 {
     class Friend : IUser
