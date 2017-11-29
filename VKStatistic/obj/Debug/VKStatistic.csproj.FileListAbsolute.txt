@@ -11,3 +11,16 @@ C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.csp
 C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.csproj.CoreCompileInputs.cache
 C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.exe
 C:\Users\DaKoshin\source\repos\VKStatistic\VKStatistic\obj\Debug\VKStatistic.pdb
+D:\Projects C#\Git\EleksVk\VKStatistic\bin\Debug\VKStatistic.exe.config
+D:\Projects C#\Git\EleksVk\VKStatistic\bin\Debug\VKStatistic.exe
+D:\Projects C#\Git\EleksVk\VKStatistic\bin\Debug\VKStatistic.pdb
+D:\Projects C#\Git\EleksVk\VKStatistic\bin\Debug\Newtonsoft.Json.dll
+D:\Projects C#\Git\EleksVk\VKStatistic\bin\Debug\Newtonsoft.Json.xml
+D:\Projects C#\Git\EleksVk\VKStatistic\obj\Debug\VKStatistic.csprojResolveAssemblyReference.cache
+D:\Projects C#\Git\EleksVk\VKStatistic\obj\Debug\VKStatistic.AutorizationForm.resources
+D:\Projects C#\Git\EleksVk\VKStatistic\obj\Debug\VKStatistic.MainForm.resources
+D:\Projects C#\Git\EleksVk\VKStatistic\obj\Debug\VKStatistic.Properties.Resources.resources
+D:\Projects C#\Git\EleksVk\VKStatistic\obj\Debug\VKStatistic.csproj.GenerateResource.Cache
+D:\Projects C#\Git\EleksVk\VKStatistic\obj\Debug\VKStatistic.csproj.CoreCompileInputs.cache
+D:\Projects C#\Git\EleksVk\VKStatistic\obj\Debug\VKStatistic.exe
+D:\Projects C#\Git\EleksVk\VKStatistic\obj\Debug\VKStatistic.pdb
