@@ -1,9 +1,0 @@
-[core]
-	repositoryformatversion = 0
-	filemode = false
-	bare = false
-	logallrefupdates = true
-	ignorecase = true
-[remote "origin"]
-	url = https://github.com/DaKoshin/Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
