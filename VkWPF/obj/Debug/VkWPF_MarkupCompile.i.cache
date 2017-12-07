@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Projects C#\Git\VkWPF\VkWPF\obj\Debug\
+D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\
 VkWPF
 none
 false
 DEBUG;TRACE
-D:\Projects C#\Git\VkWPF\VkWPF\App.xaml
-1-689019076
+D:\Projects C#\Git\EleksVk\VkWPF\App.xaml
+364883131
 
-9-1690851509
-81932064552
-Window1.xaml;
+11-1220919096
+811601518662
+Pages\PageSettings.xaml;Pages\PageUserInfo.xaml;WindowStart.xaml;
 
 True
 
