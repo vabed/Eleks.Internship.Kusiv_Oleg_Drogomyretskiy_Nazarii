@@ -25,20 +25,7 @@ namespace VkWPF.Pages
         public PageUserInfo()
         {
             InitializeComponent();
-            ulong appID = 6284662;                  // ID приложения
-            string email = "reskot@mail.ua";        // email или телефон
-            string pass = "ok2504762936OK";         // пароль для авторизации
-            Settings scope = Settings.All;          // Приложение имеет доступ к друзьям
-
-            var vk = new VkApi();
-            vk.Authorize(new ApiAuthParams
-            {
-                ApplicationId = appID,
-                Login = email,
-                Password = pass,
-                Settings = scope
-            }
-            );
+            var vk = new Classes.Logining().vk;
             var info = vk.Account.GetProfileInfo();
             tFName.Text = info.FirstName;
             tLName.Text = info.LastName;
