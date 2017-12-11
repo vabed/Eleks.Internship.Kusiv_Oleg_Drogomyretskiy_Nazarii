@@ -1,0 +1,50 @@
+﻿<Window x:Class="VkWPF.Windows.WindowLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VkWPF.Windows"
+        mc:Ignorable="d"
+        Title="WindowLogin" Height="400" Width="600" WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+
+    <!---->
+
+    <Border Width="auto" Height="auto" CornerRadius="30">
+        <Border.Background>
+            <LinearGradientBrush>
+                <GradientBrush.GradientStops>
+                    <GradientStopCollection>
+                        <GradientStop Color="#e7ebf7" Offset="0.0"></GradientStop>
+                        <GradientStop Color="#cee3ff" Offset="0.5"></GradientStop>
+                    </GradientStopCollection>
+                </GradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+            <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF02101A" Offset="0"/>
+                <GradientStop Color="#FF516C7D" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="30*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="tbxLogin" Grid.Column="1" Margin="30,5" Grid.Row="1" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.5,0.5" FontSize="24" FontStretch="Expanded" MinHeight="25" Text="reskot@mail.ua" />
+            <PasswordBox x:Name="tbxPass" Grid.Column="1" Margin="30,5" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" FontSize="24" FontStretch="Expanded" PasswordChar="*" MinHeight="25" Password="ok2504762936OK" >
+                
+            </PasswordBox>
+            <Button Content="Ввійти" Grid.Column="1" HorizontalAlignment="Left" Margin="30,10,25,0" Grid.Row="3" VerticalAlignment="Top" Width="140" Height="45" FontWeight="Normal" FontSize="16" Click="Button_Click_1"/>
+            <Button Content="Вихід" Grid.Column="1" HorizontalAlignment="Right" Margin="25,10,30,0" Grid.Row="3" VerticalAlignment="Top" Width="140" Height="45" FontWeight="Normal" FontSize="16" Click="Button_Click"/>
+            <Image Grid.Column="1" Margin="0,0,0,15" Source="/VkWPF;component/images/vk.png"/>
+    </Grid>
+    </Border>
+</Window>

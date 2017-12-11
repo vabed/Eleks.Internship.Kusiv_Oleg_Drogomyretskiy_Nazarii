@@ -25,10 +25,16 @@ namespace VkWPF.Pages
         public PageUserInfo()
         {
             InitializeComponent();
-            var vk = new Classes.Logining().vk;
-            var info = vk.Account.GetProfileInfo();
-            tFName.Text = info.FirstName;
-            tLName.Text = info.LastName;
+
+            var vk = Classes.Logining.vk;
+            if (vk != null)
+            {
+                var info = vk.Account.GetProfileInfo();
+                tFName.Text = info.FirstName;
+                tLName.Text = info.LastName;
+                //lbxFriends.ItemsSource = new Classes.Friends(vk).FriendsList.Select(x=> x.FirstName+" "+x.LastName);
+            }
+            else this.Visibility = Visibility.Hidden;
         }
     }
 }

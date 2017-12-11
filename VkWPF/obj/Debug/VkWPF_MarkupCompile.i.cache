@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Projects C#\Git\EleksVk\VkWPF\App.xaml
-364883131
+6-1129668923
 
-141893943013
+18265555770
 811601518662
-Pages\PageSettings.xaml;Pages\PageUserInfo.xaml;WindowStart.xaml;
+Pages\Messenger.xaml;Pages\PageSettings.xaml;Pages\PageUserInfo.xaml;Pages\Statistic.xaml;Windows\WindowStart.xaml;Windows\WindowLogin.xaml;
 
-False
+True
 

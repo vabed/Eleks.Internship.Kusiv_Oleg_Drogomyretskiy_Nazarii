@@ -80,7 +80,13 @@ D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\VkWPF.exe
 D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\VkWPF.pdb
 D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Pages\PageSettings.g.cs
 D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Pages\PageUserInfo.g.cs
-D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\WindowStart.g.cs
 D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Pages\PageSettings.baml
 D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Pages\PageUserInfo.baml
-D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\WindowStart.baml
+D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Pages\Messenger.g.cs
+D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Pages\Statistic.g.cs
+D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Windows\WindowLogin.g.cs
+D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Pages\Messenger.baml
+D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Pages\Statistic.baml
+D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Windows\WindowLogin.baml
+D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Windows\WindowStart.g.cs
+D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Windows\WindowStart.baml
