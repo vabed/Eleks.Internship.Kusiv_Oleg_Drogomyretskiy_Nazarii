@@ -32,7 +32,6 @@ namespace VkWPF.Pages
                 var info = vk.Account.GetProfileInfo();
                 tFName.Text = info.FirstName;
                 tLName.Text = info.LastName;
-                //lbxFriends.ItemsSource = new Classes.Friends(vk).FriendsList.Select(x=> x.FirstName+" "+x.LastName);
             }
             else this.Visibility = Visibility.Hidden;
         }

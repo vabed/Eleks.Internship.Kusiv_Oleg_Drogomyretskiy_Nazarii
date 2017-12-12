@@ -6,10 +6,10 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:VkWPF.Windows"
         mc:Ignorable="d"
-        Title="Vk статистика" Height="382.5" Width="619.5" WindowStartupLocation="CenterScreen" 
+        Title="Vk статистика" Height="463.929" Width="781.5" WindowStartupLocation="CenterScreen" 
         BorderThickness="1" 
         GlowBrush="Black"
-        ResizeMode="CanResizeWithGrip"
+        ResizeMode="CanResizeWithGrip" 
         >
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
@@ -30,6 +30,6 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Button  HorizontalAlignment="Right" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" Height="35"/>
-        <Frame x:Name="frameMain" Grid.Column="1" Margin="2.857,2,3.429,1" NavigationUIVisibility="Hidden" AllowDrop="True" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center"/>
+        <Frame x:Name="frameMain" Width="auto" Height="auto" Grid.Column="1" NavigationUIVisibility="Hidden" />
     </Grid>
 </Controls:MetroWindow>

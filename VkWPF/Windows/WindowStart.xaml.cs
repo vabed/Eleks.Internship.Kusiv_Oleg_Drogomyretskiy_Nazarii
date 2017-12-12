@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace VkWPF.Windows
 {
@@ -17,6 +18,14 @@ namespace VkWPF.Windows
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
             frameMain.Content = new Pages.Messenger();
+        }
+
+        private void frameMain_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+        }
+
+        private void StartWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
         }
     }
 }

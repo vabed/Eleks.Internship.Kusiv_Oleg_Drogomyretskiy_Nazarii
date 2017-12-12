@@ -5,13 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:VkWPF.Pages"
       mc:Ignorable="d"
-      Title="Messenger" Width="500" Height="500" HorizontalAlignment="Center" VerticalAlignment="Center" Loaded="Page_Loaded">
+      Title="Messenger" Loaded="Page_Loaded" d:DesignWidth="700" d:DesignHeight="500">
 
-    <Grid Width="auto" Height="auto">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*"/>
-            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <ListBox x:Name="lbxFriends" Grid.Column="0" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" SelectionChanged="ListBox_SelectionChanged"/>
         <Button Background="#FFF43333" Margin="0" Content="aaaa" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch" Grid.ColumnSpan="2" Grid.Column="1"/>
     </Grid>
