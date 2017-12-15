@@ -26,7 +26,7 @@ namespace VkWPF.Pages
         {
             InitializeComponent();
 
-            var vk = Classes.Logining.vk;
+            var vk = Classes.Logining.Vk;
             if (vk != null)
             {
                 var info = vk.Account.GetProfileInfo();

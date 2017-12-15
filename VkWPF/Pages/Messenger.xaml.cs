@@ -29,11 +29,29 @@ namespace VkWPF.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var vk = Classes.Logining.vk;
+            var vk = Classes.Logining.Vk;
             if (vk!=null) {
-                lbxFriends.ItemsSource = new Classes.Friends(vk).FriendsList.Select(x => x.FirstName + " " + x.LastName);
+                lbxFriends.ItemsSource = new Classes.Friends().FriendsList.Select(x => x.FirstName + " " + x.LastName);
             }
 
+        }
+
+        private void btnFriendsOnline_Click(object sender, RoutedEventArgs e)
+        {
+            var vk = Classes.Logining.Vk;
+            if (vk != null)
+            {
+                lbxFriends.ItemsSource = new Classes.Friends().getFriendsListOnline().Select(x => x.FirstName + " " + x.LastName);
+            }
+        }
+
+        private void btnFriends_Click(object sender, RoutedEventArgs e)
+        {
+            var vk = Classes.Logining.Vk;
+            if (vk != null)
+            {
+                lbxFriends.ItemsSource = new Classes.Friends().FriendsList.Select(x => x.FirstName + " " + x.LastName);
+            }
         }
     }
 }

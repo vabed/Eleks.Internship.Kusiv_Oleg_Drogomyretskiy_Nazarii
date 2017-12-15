@@ -13,26 +13,26 @@ namespace VkWPF.Classes
     {
         ulong appID = 6284662;                  // ID приложения
         Settings scope;                         // Приложение имеет доступ к друзьям
-        string login;                           // email или телефон
-        string pass;                            // пароль для авторизации
-        public static VkApi vk { get; private set; }
+        static string Login { get; set; }                           // email или телефон
+        static string Pass { get; set; }                         // пароль для авторизации
+
+        public static VkApi Vk { get; private set; }
 
         public Logining(string login, string pass) {
             SignIn(login, pass);
         }
-
         public Logining() {}
 
         public VkApi SignIn(string login, string pass) {
             scope = Settings.All;
-            this.login = login;
-            this.pass = pass;
+            Login = login;
+            Pass = pass;
 
-            if (vk == null) {
+            if (Vk == null) {
                 try
                 {
-                    vk = new VkApi();
-                    vk.Authorize(new ApiAuthParams
+                    Vk = new VkApi();
+                    Vk.Authorize(new ApiAuthParams
                     {
                         ApplicationId = appID,
                         Login = login,
@@ -41,10 +41,10 @@ namespace VkWPF.Classes
                     }
                     );
                 }
-                catch (VkNet.Exception.VkApiAuthorizationException ex) { MessageBox.Show("Неправельно введені логін або пароль!"); vk = null; }
-                catch (VkNet.Exception.VkApiException) { MessageBox.Show("Включіть VPN!"); vk = null; }
+                catch (VkNet.Exception.VkApiAuthorizationException ex) { MessageBox.Show("Неправельно введені логін або пароль!"); Vk = null; }
+                catch (VkNet.Exception.VkApiException) { MessageBox.Show("Включіть VPN!"); Vk = null; }
             }
-            return vk;
+            return Vk;
         }
     }
 }

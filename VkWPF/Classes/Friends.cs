@@ -10,14 +10,23 @@ namespace VkWPF.Classes
 {
     class Friends
     {
+        VkApi _vk;
+
         public VkCollection<VkNet.Model.User> FriendsList { get; private set; }
-        public Friends(VkNet.VkApi vk) {
-            FriendsList = vk.Friends.Get(new VkNet.Model.RequestParams.FriendsGetParams()
+        public VkCollection<VkNet.Model.User> getFriendsListOnline() {
+            var temp = FriendsList.Where(x => x.Online == true);
+            return new VkCollection<VkNet.Model.User>((ulong)temp.Count(), temp);
+        }
+
+        public Friends() {
+            _vk = Logining.Vk;
+            FriendsList = _vk.Friends.Get(new VkNet.Model.RequestParams.FriendsGetParams()
                 {
-                    UserId = vk.UserId,
-                    Fields = ProfileFields.FirstName | ProfileFields.LastName
+                    UserId = _vk.UserId,
+                    Fields = ProfileFields.FirstName | ProfileFields.LastName | ProfileFields.Online
                 }
             );
         }
+
     }
 }

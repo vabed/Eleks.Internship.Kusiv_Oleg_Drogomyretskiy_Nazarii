@@ -7,6 +7,7 @@
       mc:Ignorable="d"
       Title="Messenger" Loaded="Page_Loaded" d:DesignWidth="700" d:DesignHeight="500">
 
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
@@ -15,7 +16,22 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="lbxFriends" Grid.Column="0" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" SelectionChanged="ListBox_SelectionChanged"/>
+        <StackPanel Grid.Column="0" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Button x:Name="btnFriends" Content="Список друзів" Grid.Column="0" Margin="5" FontWeight="Normal" Click="btnFriends_Click"/>
+                <Button x:Name="btnFriendsOnline" Content="Список друзів онлайн" Grid.Column="1" Margin="5" FontWeight="Normal" Click="btnFriendsOnline_Click"/>
+            </Grid>
+            <ListBox x:Name="lbxFriends" VerticalContentAlignment="Top" SelectionChanged="ListBox_SelectionChanged" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+
+        </StackPanel>
+
         <Button Background="#FFF43333" Margin="0" Content="aaaa" VerticalContentAlignment="Top" HorizontalContentAlignment="Stretch" Grid.ColumnSpan="2" Grid.Column="1"/>
     </Grid>
 </Page>

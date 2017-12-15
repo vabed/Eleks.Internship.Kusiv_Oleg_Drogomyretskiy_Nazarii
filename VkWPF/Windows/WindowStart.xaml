@@ -9,7 +9,7 @@
         Title="Vk статистика" Height="463.929" Width="781.5" WindowStartupLocation="CenterScreen" 
         BorderThickness="1" 
         GlowBrush="Black"
-        ResizeMode="CanResizeWithGrip" 
+        ResizeMode="CanResizeWithGrip" Closing="StartWindow_Closing" 
         >
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
@@ -18,7 +18,7 @@
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
 
-    <Grid>
+    <Grid x:Name="gridMenu">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                 <GradientStop Color="#FF3F3F46" Offset="0.022"/>
@@ -29,7 +29,7 @@
             <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button  HorizontalAlignment="Right" VerticalAlignment="Top" Width="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" Height="35"/>
+        <Button x:Name="btnMenu" HorizontalAlignment="Right" VerticalAlignment="Top" Width="35" Height="35" Click="btnMenu_Click"/>
         <Frame x:Name="frameMain" Width="auto" Height="auto" Grid.Column="1" NavigationUIVisibility="Hidden" />
     </Grid>
 </Controls:MetroWindow>
