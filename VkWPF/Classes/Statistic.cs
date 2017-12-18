@@ -8,6 +8,8 @@ namespace VkWPF.Classes
 {
     class Statistic
     {
-
+        public Statistic()
+        {
+        }
     }
 }

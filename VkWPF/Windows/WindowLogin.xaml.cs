@@ -31,7 +31,7 @@ namespace VkWPF.Windows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (new Classes.Logining().SignIn(tbxLogin.Text, tbxPass.Password) != null)
+            if (new Classes.Logining(tbxLogin.Text, tbxPass.Password).GetCurrectVkApi() != null)
             {
                 new WindowStart().Show();
                 this.Hide();

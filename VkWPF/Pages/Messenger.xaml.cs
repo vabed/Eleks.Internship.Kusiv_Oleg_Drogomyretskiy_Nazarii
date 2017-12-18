@@ -12,11 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VkNet;
 
 namespace VkWPF.Pages
 {
     public partial class Messenger : Page
     {
+        VkApi vk;
+
         public Messenger()
         {
             InitializeComponent();
@@ -29,11 +32,15 @@ namespace VkWPF.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var vk = Classes.Logining.Vk;
+            vk = Classes.Logining.Vk;
             if (vk!=null) {
                 lbxFriends.ItemsSource = new Classes.Friends().FriendsList.Select(x => x.FirstName + " " + x.LastName);
             }
 
+            /*
+             var dialogsInfo = new Classes.Messenger().GetInfoAboutDialogs();
+             tbxMessages.Text = String.Join("\n",dialogsInfo);
+            */
         }
 
         private void btnFriendsOnline_Click(object sender, RoutedEventArgs e)
@@ -41,7 +48,7 @@ namespace VkWPF.Pages
             var vk = Classes.Logining.Vk;
             if (vk != null)
             {
-                lbxFriends.ItemsSource = new Classes.Friends().getFriendsListOnline().Select(x => x.FirstName + " " + x.LastName);
+                lbxFriends.ItemsSource = new Classes.Friends().GetFriendsListOnline().Select(x => x.FirstName + " " + x.LastName);
             }
         }
 

@@ -13,10 +13,12 @@ namespace VkWPF.Classes
     {
         ulong appID = 6284662;                  // ID приложения
         Settings scope;                         // Приложение имеет доступ к друзьям
-        static string Login { get; set; }                           // email или телефон
-        static string Pass { get; set; }                         // пароль для авторизации
+        static string Login { get; set; }       // email или телефон
+        static string Pass { get; set; }        // пароль для авторизации
 
         public static VkApi Vk { get; private set; }
+
+        public VkApi GetCurrectVkApi() => Vk; 
 
         public Logining(string login, string pass) {
             SignIn(login, pass);
@@ -41,7 +43,7 @@ namespace VkWPF.Classes
                     }
                     );
                 }
-                catch (VkNet.Exception.VkApiAuthorizationException ex) { MessageBox.Show("Неправельно введені логін або пароль!"); Vk = null; }
+                catch (VkNet.Exception.VkApiAuthorizationException) { MessageBox.Show("Неправельно введені логін або пароль!"); Vk = null; }
                 catch (VkNet.Exception.VkApiException) { MessageBox.Show("Включіть VPN!"); Vk = null; }
             }
             return Vk;
