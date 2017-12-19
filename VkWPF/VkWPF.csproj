@@ -116,6 +116,9 @@
     <Compile Include="Pages\PageUserInfo.xaml.cs">
       <DependentUpon>PageUserInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageStatistic.xaml.cs">
+      <DependentUpon>PageStatistic.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Statistic.xaml.cs">
       <DependentUpon>Statistic.xaml</DependentUpon>
     </Compile>
@@ -166,10 +169,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PageUserInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PageUserInfo.xaml">
+    <Page Include="Pages\PageStatistic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

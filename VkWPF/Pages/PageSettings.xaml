@@ -9,6 +9,7 @@
       Title="PageSettings">
 
     <Grid>
-        
+        <TextBlock Margin="0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Settings"/><LineBreak/><Run/></TextBlock>
+
     </Grid>
 </Page>

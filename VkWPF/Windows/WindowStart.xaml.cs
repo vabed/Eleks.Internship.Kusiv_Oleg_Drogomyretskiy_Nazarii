@@ -18,7 +18,7 @@ namespace VkWPF.Windows
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Content = new Pages.Statistic();
+            frameMain.Content = new Pages.PageStatistic();
         }
 
         private void frameMain_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
