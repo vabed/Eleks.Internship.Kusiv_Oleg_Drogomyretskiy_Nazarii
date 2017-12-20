@@ -29,11 +29,6 @@ namespace VkWPF.Windows
         {
         }
 
-        private void btnMenu_Click(object sender, RoutedEventArgs e)
-        {
-            gridMenu.ColumnDefinitions[0].Width = new GridLength(40);
-        }
-
         private void StartWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Environment.Exit(0);
