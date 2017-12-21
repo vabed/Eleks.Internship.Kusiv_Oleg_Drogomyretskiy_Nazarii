@@ -28,7 +28,7 @@ namespace VkWPF.Classes
             FriendsList = _vk.Friends.Get(new VkNet.Model.RequestParams.FriendsGetParams()
                 {
                     UserId = id,
-                    Fields = ProfileFields.FirstName | ProfileFields.LastName | ProfileFields.Photo100 | ProfileFields.Online | ProfileFields.Country
+                    Fields = ProfileFields.FirstName | ProfileFields.LastName | ProfileFields.Photo100 | ProfileFields.Online | ProfileFields.Country | ProfileFields.Sex
                 }
             );
         }
@@ -41,5 +41,8 @@ namespace VkWPF.Classes
             _vk = Logining.Vk;
             UpdateFriends(userId);
         }
+        public int Count(VkCollection<User> vkCollection) => vkCollection.Count();
+
+
     }
 }

@@ -107,12 +107,14 @@
     <Compile Include="Classes\Friends.cs" />
     <Compile Include="Classes\Logining.cs" />
     <Compile Include="Classes\Messenger.cs" />
-    <Compile Include="Classes\Statistic.cs" />
     <Compile Include="Pages\Friends.xaml.cs">
       <DependentUpon>Friends.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Messenger.xaml.cs">
-      <DependentUpon>Messenger.xaml</DependentUpon>
+    <Compile Include="Pages\PageFriends.xaml.cs">
+      <DependentUpon>PageFriends.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageMessenger.xaml.cs">
+      <DependentUpon>PageMessenger.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageSettings.xaml.cs">
       <DependentUpon>PageSettings.xaml</DependentUpon>
@@ -168,7 +170,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Messenger.xaml">
+    <Page Include="Pages\PageFriends.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageMessenger.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

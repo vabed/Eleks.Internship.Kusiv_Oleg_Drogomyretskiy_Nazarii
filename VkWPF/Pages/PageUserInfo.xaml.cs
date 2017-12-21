@@ -30,8 +30,8 @@ namespace VkWPF.Pages
             if (vk != null)
             {
                 var info = vk.Account.GetProfileInfo();
-                tFName.Text = info.FirstName;
-                tLName.Text = info.LastName;
+                tFName.Content = info.FirstName;
+                tLName.Content = info.LastName;
             }
             else this.Visibility = Visibility.Hidden;
         }

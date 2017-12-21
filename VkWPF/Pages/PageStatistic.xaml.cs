@@ -63,6 +63,7 @@ namespace VkWPF.Pages
         {
             InitializeComponent();
             _vk = Classes.Logining.Vk;
+
         }
 
         private void pageStatistic_Initialized(object sender, EventArgs e)

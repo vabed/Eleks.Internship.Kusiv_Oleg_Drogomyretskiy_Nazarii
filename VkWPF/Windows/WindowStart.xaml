@@ -20,80 +20,73 @@
         </Storyboard>
     </Window.Resources>
     
+    <Controls:MetroWindow.Background>
+        <VisualBrush x:Name="Back"/>
+    </Controls:MetroWindow.Background>
+
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button x:Name ="btnUserInfo"  Content="Аккаунт" Click="btnUserInfo_Click" />
             <Button x:Name ="btnSettings"  Content="Налаштування" Click="btnSettings_Click" />
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-    <Canvas>
-        <StackPanel Panel.ZIndex="2" x:Name="spLeft" Background="#2D3446" Width="200" Margin="-150,0,0,0">
-            <StackPanel.Style>
-                <Style TargetType="StackPanel">
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="Green"/>
-                        </Trigger>
-                        <EventTrigger RoutedEvent="MouseEnter">
-                            <EventTrigger.Actions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-150,0,0,0" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:1"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
+    <Grid Width="auto" Height="auto" MinWidth="297" MinHeight="300">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Frame Grid.Column="1" x:Name="frameMain" Width="auto" Height="auto" NavigationUIVisibility="Hidden" />
+        <Canvas>
+            <StackPanel Panel.ZIndex="2" x:Name="spLeft" Background="#2D3446" Width="200" Margin="-150,0,0,0">
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Green"/>
+                            </Trigger>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-150,0,0,0" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:01"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
 
-                            </EventTrigger.Actions>
-                        </EventTrigger>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
 
-                        <EventTrigger RoutedEvent="MouseLeave">
-                            <EventTrigger.Actions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-150,0,0,0" DecelerationRatio=".9" Duration="0:0:1"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger.Actions>
-                        </EventTrigger>
-                    </Style.Triggers>
-                </Style>
-            </StackPanel.Style>
-            <!--<Button Style="{DynamicResource myButton}" x:Name="myButton" Click="myButton_Click" Height="60"></Button>
-            <Button Style="{DynamicResource myButton}" x:Name="myButton2" Click="myButton2_Click" Height="60"></Button>-->
-            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" Height="50">
-                <Label Width="140" Content="Anasayfa" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" />
-                <Image Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,10,10,10" />
-            </DockPanel>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-150,0,0,0" DecelerationRatio=".9" Duration="0:0:01"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
 
-            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                <Label Content="Veri Kayıt" Width="140" VerticalAlignment="Center" FontFamily="Source Sans Pro"/>
-                <Image Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,10,10,10" />
-
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                <Label Content="İstatistik" Width="140" VerticalAlignment="Center" FontFamily="Source Sans Pro"/>
-                <Image Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,10,10,10" />
-
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                <StackPanel>
-                    <Label Content="Email" Width="140" VerticalAlignment="Center" FontFamily="Source Sans Pro"/>
-                    <Label Content="Posta Kutun Boş" FontSize="12" Width="140" VerticalAlignment="Center" FontFamily="Source Sans Pro" FontStyle="Italic"/>
-                </StackPanel>
-
-                <Image Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,10,10,10" />
-
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                <Label Content="Ayarlar" Width="140" VerticalAlignment="Center" FontFamily="Source Sans Pro"/>
-                <Image Width="25" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="14,10,10,10" />
-            </DockPanel>
-        </StackPanel>
-        <Border Margin="50,0,0,0">
-            <StackPanel>
-                <Border Background="#696969" Height="500" Margin="0,15,0,0"/>
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
+                    <Label x:Name="menuMessenger" Content="Повідомлення" Width="140" FontFamily="Source Sans Pro" MouseDown="menuMessenger_MouseDown"/>
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
+                    <Label x:Name="menuFriends" Content="Друзі" Width="140" FontFamily="Source Sans Pro" MouseDown="menuFriends_MouseDown"/>
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
+                    <Label x:Name="menuStatistic" Content="Статистика" Width="140" FontFamily="Source Sans Pro"/>
+                </DockPanel>
+                
+                <!--<DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
+                <Label Content="Veri Kayıt" Width="140" FontFamily="Source Sans Pro"/>
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
+                    <Label Content="Veri Kayıt" Width="140" FontFamily="Source Sans Pro"/>
+                </DockPanel>-->
             </StackPanel>
-        </Border>
-        <Frame x:Name="frameMain" Width="auto" Height="auto" NavigationUIVisibility="Hidden" />
-
-    </Canvas>
+        </Canvas>
+    </Grid>
+    
 </Controls:MetroWindow>

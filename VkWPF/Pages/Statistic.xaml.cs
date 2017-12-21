@@ -23,6 +23,7 @@ namespace VkWPF.Pages
         public Statistic()
         {
             InitializeComponent();
+
             value = new Dictionary<int, double>();
             for (int i = 1; i <= 2; i++)
                 value.Add(i, 10 * i);
@@ -31,6 +32,16 @@ namespace VkWPF.Pages
             chart.DataSource = value;
             chart.Series["series"].XValueMember = "Key";
             chart.Series["series"].YValueMembers = "Value";
+
+            Chart chart1 = this.FindName("MyWinformChart1") as Chart;
+            chart1.DataSource = value;
+            chart1.Series["series"].XValueMember = "Key";
+            chart1.Series["series"].YValueMembers = "Value";
+
+            Classes.Friends friends = new Classes.Friends();
+            lblCountFrends.Content = friends.Count(friends.FriendsList);
+            lblCountFrendsFemales.Content = friends.Count(friends.FilterSex(VkNet.Enums.Sex.Female));
+            lblCountFrendsMales.Content ="Кількість друзів сильнох статі " + friends.Count(friends.FilterSex(VkNet.Enums.Sex.Male)); 
         }
     }
 }

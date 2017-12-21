@@ -9,17 +9,30 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="StatisticControl">
     <StackPanel>
-
-        <WindowsFormsHost x:Name="host" Height="300">
-            <winformchart:Chart x:Name="MyWinformChart" Dock="Fill">
+        <WindowsFormsHost Height="Auto" Background="transparent" >
+            <winformchart:Chart x:Name="MyWinformChart" BackColor="transparent ">
                 <winformchart:Chart.Series>
-                    <winformchart:Series Name="series" ChartType="Pie"/>
+                    <winformchart:Series Name="series" ChartType="Pie" />
                 </winformchart:Chart.Series>
                 <winformchart:Chart.ChartAreas>
-                    <winformchart:ChartArea/>
+                    <winformchart:ChartArea BackColor="transparent "/>
                 </winformchart:Chart.ChartAreas>
             </winformchart:Chart>
         </WindowsFormsHost>
+        <WindowsFormsHost Height="Auto" Background="transparent" >
+            <winformchart:Chart x:Name="MyWinformChart1" BackColor="transparent ">
+                <winformchart:Chart.Series>
+                    <winformchart:Series Name="series" ChartType="Pie" />
+                </winformchart:Chart.Series>
+                <winformchart:Chart.ChartAreas>
+                    <winformchart:ChartArea BackColor="transparent "/>
+                </winformchart:Chart.ChartAreas>
+            </winformchart:Chart>
+        </WindowsFormsHost>
+
+        <Label x:Name="lblCountFrends" />
+        <Label x:Name="lblCountFrendsFemales"/>
+        <Label x:Name="lblCountFrendsMales"/>
 
     </StackPanel>
 </Page>
