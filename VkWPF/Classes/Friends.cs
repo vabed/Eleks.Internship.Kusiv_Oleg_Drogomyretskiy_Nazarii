@@ -71,7 +71,7 @@ namespace VkWPF.Classes
         }
         public IEnumerable<User> GetOdnoselchans()//ДН XD)
         {
-            var moieselo = _vk.Account.GetProfileInfo().City.Title;
+            var moieselo = (_vk.Account.GetProfileInfo().City !=null) ? _vk.Account.GetProfileInfo().City.Title : null ;
             foreach (var friend in FriendsList)
             {
                 if(friend.City !=null && friend.City.Title ==moieselo)

@@ -1,0 +1,16 @@
+packages/
+*.suo
+*.DotSettings
+*.user
+_ReSharper.*/
+bin/
+obj/
+.nuget/
+Debug/
+Release/
+.idea/
+
+/GCopLog.txt
+.vs/*
+/VkNet.UWP/*.lock.json
+/VkNet/Categories/Obsolete/

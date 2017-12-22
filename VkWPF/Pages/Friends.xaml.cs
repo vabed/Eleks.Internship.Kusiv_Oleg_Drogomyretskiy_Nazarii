@@ -33,6 +33,7 @@ namespace VkWPF.Pages
 
             BuferingOfImgs(friends);
         }
+
         private static List<Image> imgs;
         public static void BuferingOfImgs(VkCollection<User> FriendsList)
         {
@@ -50,9 +51,11 @@ namespace VkWPF.Pages
                 }
             }
         }
-        private void lbxFriends_Initialized(object sender, EventArgs e)
-        {
-           
+
+        public User GetSelected() {
+            if (lbxFriends.SelectedIndex != -1)
+                return (lbxFriends.ItemsSource as VkCollection<User>)[lbxFriends.SelectedIndex];
+            else return null;
         }
     }
 }

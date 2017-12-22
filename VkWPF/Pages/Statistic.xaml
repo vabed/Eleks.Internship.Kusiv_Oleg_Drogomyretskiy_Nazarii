@@ -45,6 +45,6 @@
         <Label x:Name="lblWork" FontFamily="Palatino Linotype" FontSize="20" />
         <Label x:Name="lblFriends" FontFamily="Palatino Linotype" FontSize="20" />
 
-
+        <Label x:Name="lblSelected" FontFamily="Palatino Linotype" FontSize="20" />
     </StackPanel>
 </Page>

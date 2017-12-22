@@ -63,16 +63,12 @@ namespace VkWPF.Pages
         {
             InitializeComponent();
             _vk = Classes.Logining.Vk;
-            statisticCotrol = new Pages.Statistic();
+
+            statisticCotrol = new Statistic();
             frameStatistic.Content = statisticCotrol;
 
             friendsControl = new Friends();
             frameFriends.Content = friendsControl;
-        }
-
-        private void pageStatistic_Initialized(object sender, EventArgs e)
-        {
-           
         }
 
         //Updating of friends
@@ -87,6 +83,13 @@ namespace VkWPF.Pages
         private void btnFriendsOnline_Click(object sender, RoutedEventArgs e)
         {
             UpdateFriends(true);
+        }
+
+        private void frameFriends_MouseLeave(object sender, MouseEventArgs e)
+        {
+            var temp = friendsControl.GetSelected();
+            if (temp != null)
+                statisticCotrol.SelectedUser = temp;
         }
     }
 }

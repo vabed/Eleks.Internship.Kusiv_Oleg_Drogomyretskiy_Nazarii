@@ -8,7 +8,7 @@
       d:DesignWidth ="300"
       d:DesignHeight ="300"
       Title="Friends" >
-    <ListBox  x:Name="lbxFriends" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Initialized="lbxFriends_Initialized" >
+    <ListBox  x:Name="lbxFriends" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" >
         <ListBox.ItemTemplate>
             <DataTemplate>
                 <Grid x:Name="GridItem">

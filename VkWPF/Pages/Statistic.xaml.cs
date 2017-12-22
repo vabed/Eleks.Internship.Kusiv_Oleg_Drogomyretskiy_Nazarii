@@ -13,21 +13,32 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VkNet;
+using VkNet.Model;
 
 namespace VkWPF.Pages
 {
    
     public partial class Statistic : Page
     {
-        Dictionary<int, double> value;
+        //Dictionary<int, double> value;
+        User _selectedUser;
+        public User SelectedUser {
+            get => _selectedUser;
+            set {
+                _selectedUser = value;
+                lblSelected.Content = _selectedUser.FirstName;
+            }
+        }
         public Statistic()
         {
             InitializeComponent();
 
-            value = new Dictionary<int, double>();
+            /*
+             * value = new Dictionary<int, double>();
             for (int i = 1; i <= 2; i++)
                 value.Add(i, 10 * i);
-
+                */
             //Chart chart = this.FindName("MyWinformChart") as Chart;
             //chart.DataSource = value;
             //chart.Series["series"].XValueMember = "Key";
@@ -40,7 +51,6 @@ namespace VkWPF.Pages
 
             Classes.Friends friends = new Classes.Friends();
 
-
             lblCountFrends.Content = "Кількість друзів: " + friends.Count();
             lblCountFrendsFemales.Content = "Кількість друзів слабкої статі: " + friends.Count(friends.FilterSex(VkNet.Enums.Sex.Female));
             lblCountFrendsMales.Content = "Кількість друзів сильної статі: " + friends.Count(friends.FilterSex(VkNet.Enums.Sex.Male));
@@ -50,6 +60,7 @@ namespace VkWPF.Pages
             lblOdnoselchany.Content = "Кількість односельчан: "+friends.GetOdnoselchans().Count();
             lblWork.Content = "Кількість друзів які навчаються або працюють з Вами: "+friends.WhoWorkWithMe().Count();
             lblFriends.Content = string.Join("\n",friends.FilterOld(1998));
+
         }
     }
 }

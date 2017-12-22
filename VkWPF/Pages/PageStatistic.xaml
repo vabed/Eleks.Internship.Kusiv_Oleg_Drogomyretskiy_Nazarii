@@ -37,7 +37,7 @@
                     <Button x:Name="btnFriends" Grid.Column="0" Content="Список друзів" HorizontalAlignment="Stretch" Click="btnFriends_Click"/>
                     <Button x:Name="btnFriendsOnline" Grid.Column="1" Height="auto" Content="Список друзів онлайн"   HorizontalAlignment="Stretch" Click="btnFriendsOnline_Click"/>
                 </Grid>
-                <Frame Grid.Row="1" x:Name="frameFriends" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+                <Frame Grid.Row="1" x:Name="frameFriends" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MouseLeave="frameFriends_MouseLeave"/>
             </Grid>
 
             <Grid Grid.Column="1">

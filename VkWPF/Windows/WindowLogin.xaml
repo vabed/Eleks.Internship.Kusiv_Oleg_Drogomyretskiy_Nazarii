@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VkWPF.Windows"
         mc:Ignorable="d"
-        Title="WindowLogin" Height="400" Width="512" WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+        Title="WindowLogin" Height="400" Width="512" WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False" AllowsTransparency="True" WindowStyle="None">
 
     <!---->
 
@@ -38,8 +38,8 @@
                 <ColumnDefinition Width="60*"/>
                 <ColumnDefinition Width="20*"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="tbxLogin" Grid.Column="1" Margin="3.6,10" Grid.Row="1" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.5,0.5" FontSize="16" FontStretch="Expanded" MinHeight="25" Text="reskot@mail.ua" VerticalAlignment="Center" Height="30" FontFamily="Palatino Linotype" Width="300" HorizontalAlignment="Center" />
-            <PasswordBox x:Name="tbxPass" Grid.Column="1" Margin="3.6,10.413,3.6,10" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontStretch="Expanded" PasswordChar="*" MinHeight="25" Password="ok2504762936OK" VerticalAlignment="Center" FontFamily="Palatino Linotype" Width="300" HorizontalAlignment="Center" />
+            <TextBox x:Name="tbxLogin" Grid.Column="1" Margin="3.6,10" Grid.Row="1" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.5,0.5" FontSize="16" FontStretch="Expanded" MinHeight="25" Text="380970566538" VerticalAlignment="Center" Height="30" FontFamily="Palatino Linotype" Width="300" HorizontalAlignment="Center" />
+            <PasswordBox x:Name="tbxPass" Grid.Column="1" Margin="3.6,10.413,3.6,10" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontStretch="Expanded" PasswordChar="*" MinHeight="25" Password="Bleach222" VerticalAlignment="Center" FontFamily="Palatino Linotype" Width="300" HorizontalAlignment="Center" />
             <Button Content="Ввійти" Grid.Column="1" Margin="81.433,10,85.767,0" Grid.Row="3" VerticalAlignment="Top" Width="140" Height="33.667" FontWeight="Normal" FontSize="16" Click="Button_Click_1" FontFamily="Palatino Linotype" HorizontalAlignment="Center"/>
             <Button Content="Вихід" Grid.Column="1" Margin="81.433,48.667,85.767,30.166" Grid.Row="3" VerticalAlignment="Center" Width="140" Height="33.667" FontWeight="Normal" FontSize="16" Click="Button_Click" FontFamily="Palatino Linotype" HorizontalAlignment="Center"/>
             <Image Grid.Column="1" Margin="85.451,51.068,90.172,36.689" Source="/VkWPF;component/images/vk.png" RenderTransformOrigin="0.5,0.5" Height="99.743" VerticalAlignment="Center" HorizontalAlignment="Center" Width="184.377">
