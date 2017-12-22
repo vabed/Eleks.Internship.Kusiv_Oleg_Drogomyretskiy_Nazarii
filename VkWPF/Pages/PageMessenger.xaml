@@ -32,6 +32,8 @@
             </Grid>
             <Frame Grid.Row="1" x:Name="frameFriends" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
         </Grid>
+        <ListBox x:Name="History" HorizontalAlignment="Left" Height="526" VerticalAlignment="Top" Width="820" Grid.Column="1" Margin="10,10,0,0" FontFamily="Palatino Linotype" FontSize="21"/>
+        <TextBox x:Name="SendMessage" Grid.Column="1" HorizontalAlignment="Left" Height="49" Margin="10,541,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="820" FontFamily="Palatino Linotype" FontSize="16"/>
 
     </Grid>
 </Page>

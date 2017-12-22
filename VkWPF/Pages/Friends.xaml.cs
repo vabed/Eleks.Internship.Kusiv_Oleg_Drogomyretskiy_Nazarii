@@ -20,7 +20,6 @@ namespace VkWPF.Pages
 {
     public partial class Friends : Page
     {
-        List<Image> imgs;
         VkApi _vk;
         public Friends()
         {
@@ -32,16 +31,25 @@ namespace VkWPF.Pages
             var friends = new Classes.Friends().FriendsList;
             lbxFriends.ItemsSource = friends;
 
-            for (int i = 0; i < friends.Count; i++)
+            BuferingOfImgs(friends);
+        }
+        private static List<Image> imgs;
+        public static void BuferingOfImgs(VkCollection<User> FriendsList)
+        {
+            Image img;
+            if (imgs == null)
             {
-                Image img = new Image()
+                imgs = new List<Image>();
+                for (int i = 0; i < FriendsList.Count; i++)
                 {
-                    Source = new BitmapImage(friends[i].Photo100)
-                };
-                imgs.Add(img);
+                    img = new Image()
+                    {
+                        Source = new BitmapImage(FriendsList[i].Photo100)
+                    };
+                    imgs.Add(img);
+                }
             }
         }
-
         private void lbxFriends_Initialized(object sender, EventArgs e)
         {
            

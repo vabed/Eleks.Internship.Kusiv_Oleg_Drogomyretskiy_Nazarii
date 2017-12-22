@@ -11,11 +11,12 @@ namespace VkWPF.Windows
     public partial class WindowStart
     {
         VkApi _vk;
+
         public WindowStart()
         {
             InitializeComponent();
             _vk = Classes.Logining.Vk;
-
+            
             Image image = new Image();
             image.Source = new BitmapImage(_vk.Users.Get(_vk.UserId.Value, VkNet.Enums.Filters.ProfileFields.PhotoMaxOrig).PhotoMaxOrig);
             image.Effect = new BlurEffect() { Radius = 30, KernelType = KernelType.Gaussian,RenderingBias=RenderingBias.Quality};
@@ -29,7 +30,7 @@ namespace VkWPF.Windows
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Content = new Pages.PageStatistic();
+            frameMain.Content = new Pages.PageStatistic(); 
         }
 
         private void frameMain_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)

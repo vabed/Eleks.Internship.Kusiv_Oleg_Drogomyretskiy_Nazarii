@@ -70,15 +70,16 @@
                 </StackPanel.Style>
 
                 <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                    <Label x:Name="menuMessenger" Content="Повідомлення" Width="140" FontFamily="Source Sans Pro" MouseDown="menuMessenger_MouseDown"/>
+                    <Label x:Name="menuMessenger" Content="Повідомлення" Width="140" FontFamily="Palatino Linotype" MouseDown="menuMessenger_MouseDown"/>
                 </DockPanel>
                 <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                    <Label x:Name="menuFriends" Content="Друзі" Width="140" FontFamily="Source Sans Pro" MouseDown="menuFriends_MouseDown"/>
+                    <Label x:Name="menuFriends" Content="Друзі" Width="140" FontFamily="Palatino Linotype" MouseDown="menuFriends_MouseDown"/>
                 </DockPanel>
                 <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                    <Label x:Name="menuStatistic" Content="Статистика" Width="140" FontFamily="Source Sans Pro"/>
+                    <Label x:Name="menuStatistic" Content="Статистика" Width="140" FontFamily="Palatino Linotype"/>
                 </DockPanel>
-                
+              
+
                 <!--<DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
                 <Label Content="Veri Kayıt" Width="140" FontFamily="Source Sans Pro"/>
                 </DockPanel>

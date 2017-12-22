@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:VkWPF.Pages"
       xmlns:Custom="http://metro.mahapps.com/winfx/xaml/controls" x:Name="pageStatistic" x:Class="VkWPF.Pages.PageStatistic"
       mc:Ignorable="d"
-      Title="PageStatistic" d:DesignHeight="300"  d:DesignWidth ="600" Initialized="pageStatistic_Initialized">
+      Title="PageStatistic" d:DesignHeight="300"  d:DesignWidth ="600">
     <Page.Resources>
         
     </Page.Resources>

@@ -63,16 +63,16 @@ namespace VkWPF.Pages
         {
             InitializeComponent();
             _vk = Classes.Logining.Vk;
-
-        }
-
-        private void pageStatistic_Initialized(object sender, EventArgs e)
-        {
             statisticCotrol = new Pages.Statistic();
             frameStatistic.Content = statisticCotrol;
 
             friendsControl = new Friends();
             frameFriends.Content = friendsControl;
+        }
+
+        private void pageStatistic_Initialized(object sender, EventArgs e)
+        {
+           
         }
 
         //Updating of friends

@@ -9,6 +9,13 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="StatisticControl">
     <StackPanel>
+        <StackPanel.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="#FF06000F" Offset="0"/>
+                <GradientStop Color="#66002C4B" Offset="1"/>
+            </RadialGradientBrush>
+        </StackPanel.Background>
+        <!--
         <WindowsFormsHost Height="Auto" Background="transparent" >
             <winformchart:Chart x:Name="MyWinformChart" BackColor="transparent ">
                 <winformchart:Chart.Series>
@@ -29,10 +36,15 @@
                 </winformchart:Chart.ChartAreas>
             </winformchart:Chart>
         </WindowsFormsHost>
+-->
+        <Label x:Name="lblCountFrends" FontFamily="Palatino Linotype" FontSize="20" />
+        <Label x:Name="lblCountFrendsFemales" FontFamily="Palatino Linotype" FontSize="20"/>
+        <Label x:Name="lblCountFrendsMales" FontFamily="Palatino Linotype" FontSize="20"/>
+        <Label x:Name="lblLastAdded" FontFamily="Palatino Linotype" FontSize="20" />
+        <Label x:Name="lblOdnoselchany" FontFamily="Palatino Linotype" FontSize="20" />
+        <Label x:Name="lblWork" FontFamily="Palatino Linotype" FontSize="20" />
+        <Label x:Name="lblFriends" FontFamily="Palatino Linotype" FontSize="20" />
 
-        <Label x:Name="lblCountFrends" />
-        <Label x:Name="lblCountFrendsFemales"/>
-        <Label x:Name="lblCountFrendsMales"/>
 
     </StackPanel>
 </Page>
