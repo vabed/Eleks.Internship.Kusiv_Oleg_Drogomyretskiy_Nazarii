@@ -97,7 +97,6 @@ D:\Projects C#\Git\EleksVk\VkWPF\obj\Debug\Pages\Statistic.baml
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\VkWPF.exe.config
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\VkWPF.exe
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\VkWPF.pdb
-C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\AngleSharp.dll
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\HtmlAgilityPack.dll
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\JetBrains.Annotations.dll
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\MahApps.Metro.dll
@@ -109,7 +108,6 @@ C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Na
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\System.Net.Http.Primitives.dll
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\VkNet.dll
-C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\AngleSharp.xml
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\HtmlAgilityPack.xml
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\JetBrains.Annotations.xml
@@ -204,3 +202,7 @@ D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\System.Net.Http.Extensions.xml
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\System.Net.Http.Primitives.xml
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\obj\Debug\VkWPF.csproj.App.config
+C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
