@@ -29,15 +29,7 @@ namespace VkWPF.Classes
             scope = Settings.All;
             Login = login;
             Pass = pass;
-            // обработчик получения кода
-            Func<string> code = () =>
-            {
-                Console.Write("Please enter code: ");
-                string value = Console.ReadLine();
-
-                return value;
-            };
-
+            
             if (Vk == null) {
                 try
                 {
@@ -47,8 +39,7 @@ namespace VkWPF.Classes
                         ApplicationId = appID,
                         Login = login,
                         Password = pass,
-                        Settings = scope,
-                        TwoFactorAuthorization = code
+                        Settings = scope
                     }
                     );
                 }

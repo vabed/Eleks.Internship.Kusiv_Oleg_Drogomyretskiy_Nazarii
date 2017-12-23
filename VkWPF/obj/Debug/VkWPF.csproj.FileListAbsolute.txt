@@ -194,15 +194,21 @@ D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
-D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\NLog.dll
-D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\VkNet.pdb
-D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\VkNet.dll.config
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\System.Net.Http.Extensions.dll
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\System.Net.Http.Primitives.dll
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\System.Net.Http.Extensions.xml
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\System.Net.Http.Primitives.xml
-D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\obj\Debug\VkWPF.csproj.App.config
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
 C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\JetBrains.Annotations.dll
+D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Threading.Tasks.Extensions.dll
+D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\HtmlAgilityPack.pdb
+D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\HtmlAgilityPack.xml
+D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\JetBrains.Annotations.xml
+D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Threading.Tasks.xml
+D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Threading.Tasks.Extensions.xml
+D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Microsoft.Threading.Tasks.Extensions.Desktop.xml
+D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\Newtonsoft.Json.xml
