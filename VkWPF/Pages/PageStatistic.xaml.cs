@@ -24,40 +24,32 @@ namespace VkWPF.Pages
         public Statistic statisticCotrol;
         VkApi _vk;
 
-        //UserMethods
-        private void UpdateFriendsList(int id) {
-            var friendsList = new Classes.Friends(id).FriendsList;
-            if (friendsList.Count != 0)
-                friendsControl.lbxFriends.ItemsSource = friendsList;
-            else friendsControl.lbxFriends.ItemsSource = new Classes.Friends().FriendsList;
-        }
-        private void UpdateFriendsListOnline(int id)
-        {
-            var friendsList = new Classes.Friends(id).GetFriendsListOnline();
-            if (friendsList.Count != 0)
-                friendsControl.lbxFriends.ItemsSource = friendsList;
-            else friendsControl.lbxFriends.ItemsSource = new Classes.Friends().GetFriendsListOnline();
-        }
+#region UserMethods
         private void UpdateFriends(bool online) {
             if (!online)
                 try
                 {
-                    UpdateFriendsList(int.Parse(tbxId.Text));
+                    statisticCotrol.UpdateStatistic(int.Parse(tbxId.Text));
+                    friendsControl.UpdateFriendsListFrom(new Classes.Friends(int.Parse(tbxId.Text)).FriendsList);
                 }
                 catch
                 {
-                    UpdateFriendsList((int)_vk.UserId);
+                    statisticCotrol.UpdateStatistic();
+                    friendsControl.UpdateFriendsListFrom(new Classes.Friends((int)_vk.UserId).FriendsList);
                 }
             else
                 try
                 {
-                    UpdateFriendsListOnline(int.Parse(tbxId.Text));
+                    statisticCotrol.UpdateStatistic(int.Parse(tbxId.Text));
+                    friendsControl.UpdateFriendsListFrom(new Classes.Friends(int.Parse(tbxId.Text)).FriendsList, false, true);
                 }
                 catch
                 {
-                    UpdateFriendsListOnline((int)_vk.UserId);
+                    statisticCotrol.UpdateStatistic();
+                    friendsControl.UpdateFriendsListFrom(new Classes.Friends((int)_vk.UserId).FriendsList,false,true);
                 }
         }
+#endregion
 
         public PageStatistic()
         {
@@ -76,6 +68,7 @@ namespace VkWPF.Pages
         {
             UpdateFriends(false);
         }
+
         private void btnFriends_Click(object sender, RoutedEventArgs e)
         {
             UpdateFriends(false);

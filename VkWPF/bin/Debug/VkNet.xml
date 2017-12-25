@@ -74,6 +74,25 @@
             Страница документации ВКонтакте http://vk.com/dev/account.setOffline
             </remarks>
         </member>
+        <member name="M:VkNet.Categories.AccountCategory.LookupContacts(System.Collections.Generic.List{System.String},VkNet.Enums.SafetyEnums.Services,System.String,System.Nullable{System.Boolean},VkNet.Enums.Filters.UsersFields)">
+            <summary>
+            Позволяет искать пользователей ВКонтакте, используя телефонные номера, email-адреса, и идентификаторы пользователей в других сервисах. Найденные пользователи могут быть также в дальнейшем получены методом friends.getSuggestions.
+            </summary>
+            <param name="contacts">Список контактов, разделенных через запятую. список слов, разделенных через запятую (Список слов, разделенных через запятую).</param>
+            <param name="service">Строковой идентификатор сервиса, по контактам которого производится поиск. Может принимать следующие значения: (email, phone, twitter, facebook, odnoklassniki, instagram, google) строка, обязательный параметр (Строка, обязательный параметр).</param>
+            <param name="mycontact">Контакт текущего пользователя в заданном сервисе. строка (Строка).</param>
+            <param name="returnAll">1 – возвращать также контакты, найденные ранее с использованием этого сервиса, 0 – возвращать только контакты, найденные с использованием поля contacts. флаг, может принимать значения 1 или 0 (Флаг, может принимать значения 1 или 0).</param>
+            <param name="fields">Список дополнительных полей, которые необходимо вернуть.
+            Доступные значения: nickname, domain, sex, bdate, city, country, timezone, photo_50, photo_100, photo_200_orig, has_mobile, contacts, education, online, relation, last_seen, status, can_write_private_message, can_see_all_posts, can_post, universities список слов, разделенных через запятую (Список слов, разделенных через запятую).</param>
+            <returns>
+            В качестве результата метод возвращает два списка:
+            found – список объектов пользователей, расширенных полями contact – контакт, по которому был найден пользователь (не приходит если пользователь был найден при предыдущем использовании метода), request_sent – запрос на добавление в друзья уже был выслан, либо пользователь уже является другом, common_count если этот контакт также был импортирован друзьями или контактами текущего пользователя. Метод также возвращает найденные ранее контакты.
+            other – список контактов, которые не были найдены. Объект содержит поля contact и common_count если этот контакт также был импортирован друзьями или контактами текущего пользователя.
+            </returns>
+            <remarks>
+            Страница документации ВКонтакте http://vk.com/dev/account.lookupContacts
+            </remarks>
+        </member>
         <member name="M:VkNet.Categories.AccountCategory.RegisterDevice(VkNet.Model.RequestParams.AccountRegisterDeviceParams)">
             <summary>
             Подписывает устройство на базе iOS, Android или Windows Phone на получение Push-уведомлений.
@@ -358,25 +377,6 @@
             </returns>
             <remarks>
             Страница документации ВКонтакте http://vk.com/dev/account.getBanned
-            </remarks>
-        </member>
-        <member name="M:VkNet.Categories.AccountCategory.LookupContacts(System.Collections.Generic.List{System.String},VkNet.Enums.SafetyEnums.Services,System.String,System.Nullable{System.Boolean},VkNet.Enums.Filters.UsersFields)">
-            <summary>
-            Позволяет искать пользователей ВКонтакте, используя телефонные номера, email-адреса, и идентификаторы пользователей в других сервисах. Найденные пользователи могут быть также в дальнейшем получены методом friends.getSuggestions.
-            </summary>
-            <param name="contacts">Список контактов, разделенных через запятую. список слов, разделенных через запятую (Список слов, разделенных через запятую).</param>
-            <param name="service">Строковой идентификатор сервиса, по контактам которого производится поиск. Может принимать следующие значения: (email, phone, twitter, facebook, odnoklassniki, instagram, google) строка, обязательный параметр (Строка, обязательный параметр).</param>
-            <param name="mycontact">Контакт текущего пользователя в заданном сервисе. строка (Строка).</param>
-            <param name="returnAll">1 – возвращать также контакты, найденные ранее с использованием этого сервиса, 0 – возвращать только контакты, найденные с использованием поля contacts. флаг, может принимать значения 1 или 0 (Флаг, может принимать значения 1 или 0).</param>
-            <param name="fields">Список дополнительных полей, которые необходимо вернуть.
-            Доступные значения: nickname, domain, sex, bdate, city, country, timezone, photo_50, photo_100, photo_200_orig, has_mobile, contacts, education, online, relation, last_seen, status, can_write_private_message, can_see_all_posts, can_post, universities список слов, разделенных через запятую (Список слов, разделенных через запятую).</param>
-            <returns>
-            В качестве результата метод возвращает два списка:
-            found – список объектов пользователей, расширенных полями contact – контакт, по которому был найден пользователь (не приходит если пользователь был найден при предыдущем использовании метода), request_sent – запрос на добавление в друзья уже был выслан, либо пользователь уже является другом, common_count если этот контакт также был импортирован друзьями или контактами текущего пользователя. Метод также возвращает найденные ранее контакты.
-            other – список контактов, которые не были найдены. Объект содержит поля contact и common_count если этот контакт также был импортирован друзьями или контактами текущего пользователя.
-            </returns>
-            <remarks>
-            Страница документации ВКонтакте http://vk.com/dev/account.lookupContacts
             </remarks>
         </member>
         <member name="T:VkNet.Categories.AppsCategory">
@@ -1478,15 +1478,13 @@
             Страница документации ВКонтакте http://vk.com/dev/docs.delete
             </remarks>
         </member>
-        <member name="M:VkNet.Categories.DocsCategory.Add(System.Int64,System.Int64,System.String,System.Nullable{System.Int64},System.String)">
+        <member name="M:VkNet.Categories.DocsCategory.Add(System.Int64,System.Int64,System.String)">
             <summary>
             Копирует документ в документы текущего пользователя.
             </summary>
             <param name="ownerId">Идентификатор пользователя или сообщества, которому принадлежит документ. Целое число, обязательный параметр</param>
             <param name="docId">Идентификатор документа. Положительное число, обязательный параметр</param>
             <param name="accessKey">Ключ доступа документа. Этот параметр следует передать, если вместе с остальными данными о документе было возвращено поле access_key.</param>
-            <param name="captchaSid">Идентификатор капчи</param>
-            <param name="captchaKey">Текст капчи, который ввел пользователь</param>
             <returns>После успешного выполнения возвращает идентификатор созданного документа (did).</returns>
             <remarks>
             Страница документации ВКонтакте http://vk.com/dev/docs.add
@@ -3494,20 +3492,6 @@
             </remarks>
         </member>
         <member name="M:VkNet.Categories.MessagesCategory.Send(VkNet.Model.RequestParams.MessagesSendParams)">
-            <summary>
-            Посылает личное сообщение.
-            </summary>
-            <param name="params">Параметры запроса.</param>
-            <returns>
-            Возвращается идентификатор отправленного сообщения.
-            </returns>
-            <exception cref="T:System.ArgumentException">Message can not be <c>null</c>.</exception>
-            <remarks>
-            Для вызова этого метода Ваше приложение должно иметь права с битовой маской, содержащей Settings.Messages
-            Страница документации ВКонтакте http://vk.com/dev/messages.send
-            </remarks>
-        </member>
-        <member name="M:VkNet.Categories.MessagesCategory.SendToUserIds(VkNet.Model.RequestParams.MessagesSendParams)">
             <summary>
             Посылает личное сообщение.
             </summary>
@@ -6353,18 +6337,6 @@
             Методы для работы со стеной пользователя.
             </summary>
         </member>
-        <member name="M:VkNet.Categories.WallCategory.AddComment(VkNet.Model.RequestParams.WallAddCommentParams)">
-            <summary>
-            Добавляет комментарий к записи на стене пользователя или сообщества.
-            </summary>
-            <param name="params">Входные параметры выборки.</param>
-            <returns>
-            После успешного выполнения возвращает идентификатор добавленного комментария (comment_id).
-            </returns>
-            <remarks>
-            Страница документации ВКонтакте http://vk.com/dev/wall.addComment
-            </remarks>
-        </member>
         <member name="M:VkNet.Categories.WallCategory.Get(System.Int64,System.Int32@,System.Nullable{System.Int32},System.Nullable{System.Int32},VkNet.Enums.SafetyEnums.WallFilter)">
             <summary>
             Возвращает список записей со стены пользователя или сообщества.
@@ -6654,16 +6626,16 @@
             Страница документации ВКонтакте http://vk.com/dev/wall.restore
             </remarks>
         </member>
-        <member name="M:VkNet.Categories.WallCategory.CreateComment(VkNet.Model.RequestParams.WallCreateCommentParams)">
+        <member name="M:VkNet.Categories.WallCategory.AddComment(VkNet.Model.RequestParams.WallAddCommentParams)">
             <summary>
-            Добавляет комментарий к записи на стене.
+            Добавляет комментарий к записи на стене пользователя или сообщества.
             </summary>
             <param name="params">Входные параметры выборки.</param>
             <returns>
             После успешного выполнения возвращает идентификатор добавленного комментария (comment_id).
             </returns>
             <remarks>
-            Страница документации ВКонтакте http://vk.com/dev/wall.createComment
+            Страница документации ВКонтакте http://vk.com/dev/wall.addComment
             </remarks>
         </member>
         <member name="M:VkNet.Categories.WallCategory.DeleteComment(System.Nullable{System.Int64},System.Int64)">
@@ -8945,26 +8917,6 @@
             <param name="response">Ответ сервера.</param>
             <returns></returns>
         </member>
-        <member name="T:VkNet.Enums.SafetyEnums.ManagerRole">
-            <summary>
-            Уровень полномочий пользователя в сообществе (Используется для задания полномочий пользователя в методе EditManager).
-            </summary>
-        </member>
-        <member name="F:VkNet.Enums.SafetyEnums.ManagerRole.Moderator">
-            <summary>
-            Пользователь является модератором собщества.
-            </summary>
-        </member>
-        <member name="F:VkNet.Enums.SafetyEnums.ManagerRole.Editor">
-            <summary>
-            Пользователь является редактором сообщества.
-            </summary>
-        </member>
-        <member name="F:VkNet.Enums.SafetyEnums.ManagerRole.Administrator">
-            <summary>
-            Пользователь является администратором сообщества.
-            </summary>
-        </member>
         <member name="T:VkNet.Enums.SafetyEnums.MediaType">
             <summary>
             Тип медиавложения.
@@ -9009,55 +8961,6 @@
             <summary>
             Ссылки, товары и записи.
             </summary>
-        </member>
-        <member name="F:VkNet.Enums.SafetyEnums.MessageAction.ChatPhotoUpdate">
-            <summary>
-             обновлена фотография беседы;
-            </summary>
-        </member>
-        <member name="F:VkNet.Enums.SafetyEnums.MessageAction.ChatPhotoRemove">
-            <summary>
-             удалена фотография беседы;
-            </summary>
-        </member>
-        <member name="F:VkNet.Enums.SafetyEnums.MessageAction.ChatCreate">
-            <summary>
-             создана беседа;
-            </summary>
-        </member>
-        <member name="F:VkNet.Enums.SafetyEnums.MessageAction.ChatTitleUpdate">
-            <summary>
-             обновлено название беседы;
-            </summary>
-        </member>
-        <member name="F:VkNet.Enums.SafetyEnums.MessageAction.ChatInviteUser">
-            <summary>
-             приглашен пользователь;
-            </summary>
-        </member>
-        <member name="F:VkNet.Enums.SafetyEnums.MessageAction.ChatKickUser">
-            <summary>
-             исключен пользователь.
-            </summary>
-        </member>
-        <member name="F:VkNet.Enums.SafetyEnums.MessageAction.ChatPinMessage">
-            <summary>
-             закреплено сообщение;
-            </summary>
-        </member>
-        <member name="F:VkNet.Enums.SafetyEnums.MessageAction.ChatUnpinMessage">
-            <summary>
-             откреплено сообщение.
-            </summary>
-        </member>
-        <member name="M:VkNet.Enums.SafetyEnums.MessageAction.op_Implicit(VkNet.Utils.VkResponse)~VkNet.Enums.SafetyEnums.MessageAction">
-            <summary>
-            Преобразовать из VkResponse
-            </summary>
-            <param name="response">Ответ.</param>
-            <returns>
-            Результат преобразования.
-            </returns>
         </member>
         <member name="T:VkNet.Enums.SafetyEnums.NameCase">
             <summary>
@@ -9724,6 +9627,26 @@
         <member name="F:VkNet.Enums.SafetyEnums.WallFilter.Postponed">
             <summary>
             Предложенные записи на стене сообщества
+            </summary>
+        </member>
+        <member name="T:VkNet.Enums.SafetyEnums.ManagerRole">
+            <summary>
+            Уровень полномочий пользователя в сообществе (Используется для задания полномочий пользователя в методе EditManager).
+            </summary>
+        </member>
+        <member name="F:VkNet.Enums.SafetyEnums.ManagerRole.Moderator">
+            <summary>
+            Пользователь является модератором собщества.
+            </summary>
+        </member>
+        <member name="F:VkNet.Enums.SafetyEnums.ManagerRole.Editor">
+            <summary>
+            Пользователь является редактором сообщества.
+            </summary>
+        </member>
+        <member name="F:VkNet.Enums.SafetyEnums.ManagerRole.Administrator">
+            <summary>
+            Пользователь является администратором сообщества.
             </summary>
         </member>
         <member name="T:VkNet.Enums.GroupSort">
@@ -13381,42 +13304,6 @@
             </summary>
             <param name="response">Ответ от сервера vk</param>
         </member>
-        <member name="T:VkNet.Exception.MessageIsTooLongException">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:VkNet.Exception.MessageIsTooLongException.#ctor">
-            <summary>
-            Инициализирует новый экземпляр класса MessageIsTooLongException
-            </summary>
-        </member>
-        <member name="M:VkNet.Exception.MessageIsTooLongException.#ctor(System.String)">
-            <summary>
-            Инициализирует новый экземпляр класса MessageIsTooLongException
-            </summary>
-            <param name="message">Описание исключения.</param>
-        </member>
-        <member name="M:VkNet.Exception.MessageIsTooLongException.#ctor(System.String,System.Exception)">
-            <summary>
-            Инициализирует новый экземпляр класса MessageIsTooLongException
-            </summary>
-            <param name="message">Описание исключения.</param>
-            <param name="innerException">Внутреннее исключение.</param>
-        </member>
-        <member name="M:VkNet.Exception.MessageIsTooLongException.#ctor(System.String,System.Int32)">
-            <summary>
-            Инициализирует новый экземпляр класса MessageIsTooLongException
-            </summary>
-            <param name="message">Описание исключения.</param>
-            <param name="code">Код ошибки, полученный от сервера ВКонтакте.</param>
-        </member>
-        <member name="M:VkNet.Exception.MessageIsTooLongException.#ctor(VkNet.Utils.VkResponse)">
-            <summary>
-            Инициализирует новый экземпляр класса VkApiException
-            </summary>
-            <param name="response">Ответ от сервера vk</param>
-        </member>
         <member name="T:VkNet.Exception.MethodHasBeenSwitchedOffException">
             <summary>
             Исключение, которое выбрасывается, если метод был выключен.
@@ -13901,43 +13788,6 @@
             </summary>
             <param name="response">Ответ от сервера vk</param>
         </member>
-        <member name="T:VkNet.Exception.TooManyAdsPostsException">
-            <summary>
-            Исключение, которое выбрасывается при превышении лимита комментариев на стене.
-            Код ошибки - 224
-            </summary>
-        </member>
-        <member name="M:VkNet.Exception.TooManyAdsPostsException.#ctor">
-            <summary>
-            Инициализирует новый экземпляр класса TooManyAdsPostsException
-            </summary>
-        </member>
-        <member name="M:VkNet.Exception.TooManyAdsPostsException.#ctor(System.String)">
-            <summary>
-            Инициализирует новый экземпляр класса TooManyAdsPostsException
-            </summary>
-            <param name="message">Описание исключения.</param>
-        </member>
-        <member name="M:VkNet.Exception.TooManyAdsPostsException.#ctor(System.String,System.Exception)">
-            <summary>
-            Инициализирует новый экземпляр класса TooManyAdsPostsException
-            </summary>
-            <param name="message">Описание исключения.</param>
-            <param name="innerException">Внутреннее исключение.</param>
-        </member>
-        <member name="M:VkNet.Exception.TooManyAdsPostsException.#ctor(System.String,System.Int32)">
-            <summary>
-            Инициализирует новый экземпляр класса TooManyAdsPostsException
-            </summary>
-            <param name="message">Описание исключения.</param>
-            <param name="code">Код ошибки, полученный от сервера ВКонтакте.</param>
-        </member>
-        <member name="M:VkNet.Exception.TooManyAdsPostsException.#ctor(VkNet.Utils.VkResponse)">
-            <summary>
-            Инициализирует новый экземпляр класса TooManyAdsPostsException
-            </summary>
-            <param name="response">Ответ от сервера vk</param>
-        </member>
         <member name="T:VkNet.Exception.TooManyRequestsException">
             <summary>
             Исключение, которые выбрасывается при попытке выполнить запрос с частотой, превышающей максимально допустимую ВКонтакте.
@@ -14011,42 +13861,6 @@
             <param name="code">Код ошибки, полученный от сервера ВКонтакте.</param>
         </member>
         <member name="M:VkNet.Exception.TooMuchOfTheSameTypeOfActionException.#ctor(VkNet.Utils.VkResponse)">
-            <summary>
-            Инициализирует новый экземпляр класса VkApiException
-            </summary>
-            <param name="response">Ответ от сервера vk</param>
-        </member>
-        <member name="T:VkNet.Exception.TooMuchSentMessagesException">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:VkNet.Exception.TooMuchSentMessagesException.#ctor">
-            <summary>
-            Инициализирует новый экземпляр класса TooMuchSentMessagesException
-            </summary>
-        </member>
-        <member name="M:VkNet.Exception.TooMuchSentMessagesException.#ctor(System.String)">
-            <summary>
-            Инициализирует новый экземпляр класса TooMuchSentMessagesException
-            </summary>
-            <param name="message">Описание исключения.</param>
-        </member>
-        <member name="M:VkNet.Exception.TooMuchSentMessagesException.#ctor(System.String,System.Exception)">
-            <summary>
-            Инициализирует новый экземпляр класса TooMuchSentMessagesException
-            </summary>
-            <param name="message">Описание исключения.</param>
-            <param name="innerException">Внутреннее исключение.</param>
-        </member>
-        <member name="M:VkNet.Exception.TooMuchSentMessagesException.#ctor(System.String,System.Int32)">
-            <summary>
-            Инициализирует новый экземпляр класса TooMuchSentMessagesException
-            </summary>
-            <param name="message">Описание исключения.</param>
-            <param name="code">Код ошибки, полученный от сервера ВКонтакте.</param>
-        </member>
-        <member name="M:VkNet.Exception.TooMuchSentMessagesException.#ctor(VkNet.Utils.VkResponse)">
             <summary>
             Инициализирует новый экземпляр класса VkApiException
             </summary>
@@ -14852,35 +14666,35 @@
         </member>
         <member name="T:VkNet.Model.Attachments.ApplicationContent">
             <summary>
-            ������� ����������.
-            ��. �������� http://vk.com/dev/attachments_w
+            Контент приложения.
+            См. описание http://vk.com/dev/attachments_w
             </summary>
         </member>
         <member name="M:VkNet.Model.Attachments.ApplicationContent.#cctor">
             <summary>
-            ����������.
+            Приложение.
             </summary>
         </member>
         <member name="P:VkNet.Model.Attachments.ApplicationContent.Name">
             <summary>
-            �������� ����������.
+            Название приложения.
             </summary>
         </member>
         <member name="P:VkNet.Model.Attachments.ApplicationContent.Photo130">
             <summary>
-            ����� ����������� ��� �������������.
+            Адрес изображения для предпросмотра.
             </summary>
         </member>
         <member name="P:VkNet.Model.Attachments.ApplicationContent.Photo604">
             <summary>
-            ����� ��������������� �����������.
+            Адрес полноразмерного изображения.
             </summary>
         </member>
         <member name="M:VkNet.Model.Attachments.ApplicationContent.FromJson(VkNet.Utils.VkResponse)">
             <summary>
-            ��������� �� json.
+            Разобрать из json.
             </summary>
-            <param name="response">����� �������.</param>
+            <param name="response">Ответ сервера.</param>
             <returns></returns>
         </member>
         <member name="T:VkNet.Model.Attachments.Attachment">
@@ -15260,39 +15074,39 @@
         </member>
         <member name="T:VkNet.Model.Attachments.MediaAttachment">
             <summary>
-            Медиа вложение.
+            Приложенный объект, имеющий идентификатор и владельца.
             </summary>
         </member>
         <member name="F:VkNet.Model.Attachments.MediaAttachment.Types">
             <summary>
-            Коллекция вложений
+            Словарь типов
             </summary>
         </member>
         <member name="P:VkNet.Model.Attachments.MediaAttachment.Id">
             <summary>
-            Идентификатор вложенеия.
+            Идентификатор приложенного объекта.
             </summary>
         </member>
         <member name="P:VkNet.Model.Attachments.MediaAttachment.OwnerId">
             <summary>
-            Идентификатор владельца вложения.
+            Идентификатор владельца приложенного объекта.
             </summary>
         </member>
         <member name="M:VkNet.Model.Attachments.MediaAttachment.ToString">
             <summary>
-            Преобразовать вложение в строку.
+            Привести объект к строке.
             </summary>
         </member>
         <member name="M:VkNet.Model.Attachments.MediaAttachment.RegisterType(System.Type,System.String)">
             <summary>
             Зарегистрировать тип.
             </summary>
-            <param name="type">тип вложения.</param>
+            <param name="type">Тип вложения.</param>
             <param name="match">Соответствие.</param>
         </member>
         <member name="M:VkNet.Model.Attachments.MediaAttachment.MatchType(System.Type)">
             <summary>
-            Соответствие типу.
+            Соответствие типа.
             </summary>
             <param name="type">Тип вложения.</param>
             <returns></returns>
@@ -15928,34 +15742,34 @@
         </member>
         <member name="T:VkNet.Model.MarketAlbum">
             <summary>
-            ������� �������
+            Каталог товаров
             </summary>
         </member>
         <member name="P:VkNet.Model.MarketAlbum.Title">
             <summary>
-            �������� ��������. ������
+            Название подборки. строка
             </summary>
         </member>
         <member name="P:VkNet.Model.MarketAlbum.Photo">
             <summary>
-            ������� ��������, ������ photo.
+            Обложка подборки, объект photo.
             </summary>
         </member>
         <member name="P:VkNet.Model.MarketAlbum.Count">
             <summary>
-            ����� ������� � ��������; int (�������� ��������)
+            Число товаров в подборке; int (числовое значение)
             </summary>
         </member>
         <member name="P:VkNet.Model.MarketAlbum.UpdatedTime">
             <summary>
-            ���� ���������� �������� � ������� unixtime. ������������� �����
+            Дата обновления подборки в формате unixtime. положительное число
             </summary>
         </member>
         <member name="M:VkNet.Model.MarketAlbum.FromJson(VkNet.Utils.VkResponse)">
             <summary>
-            ��������� �� json.
+            Разобрать из json.
             </summary>
-            <param name="response">����� �������.</param>
+            <param name="response">Ответ сервера.</param>
             <returns></returns>
         </member>
         <member name="T:VkNet.Model.Message">
@@ -16294,182 +16108,6 @@
             <param name="response"></param>
             <returns></returns>
         </member>
-        <member name="T:VkNet.Model.Wall">
-            <summary>
-            Запись со стены пользователя или сообщества. Используется для отправки сообщений
-            </summary>
-            <remarks>
-            См. описание http://vk.com/dev/post
-            </remarks>
-        </member>
-        <member name="M:VkNet.Model.Wall.#cctor">
-            <summary>
-            Пост.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.FromId">
-            <summary>
-            Идентификатор автора записи.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.Date">
-            <summary>
-            Время публикации записи.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.Text">
-            <summary>
-            Текст записи.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.ReplyOwnerId">
-            <summary>
-            Идентификатор владельца записи, в ответ на которую была оставлена текущая.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.ReplyPostId">
-            <summary>
-            Идентификатор записи, в ответ на которую была оставлена текущая.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.FriendsOnly">
-            <summary>
-            <c>true</c>, если запись была создана с опцией «Только для друзей», <c>false</c> в противном случае.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.Comments">
-            <summary>
-            Информация о комментариях к записи.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.Likes">
-            <summary>
-            Информация о лайках к записи.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.Reposts">
-            <summary>
-            Информация о репостах записи («Рассказать друзьям»).
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.Views">
-            <summary>
-            Информация о просмотрах записи. 
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.PostType">
-            <summary>
-            Тип записи (post, copy, reply, postpone, suggest). Если PostType равен "copy", то запись является копией записи с чужой стены.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.PostSource">
-            <summary>
-            Информация о способе размещения записи.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.Attachments">
-            <summary>
-            Информация о вложениях записи (фотографии ссылки и т.п.).
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.Attachment">
-            <summary>
-            Первое вложение.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.Geo">
-            <summary>
-            Информация о местоположении.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.IsPinned">
-            <summary>
-            Если запись закрепленная - вернет true
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.SignerId">
-            <summary>
-            Идентификатор автора, если запись была опубликована от имени сообщества и подписана пользователем.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CopyPostDate">
-            <summary>
-            Время публикации записи-оригинала (если запись является копией записи с чужой стены).
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CopyPostType">
-            <summary>
-            Тип записи-оригинала (если запись является копией записи с чужой стены).
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CopyOwnerId">
-            <summary>
-            Идентификатор владельца стены, у которого была скопирована запись (если запись является копией записи с чужой стены).
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CopyPostId">
-            <summary>
-            Идентификатор скопированной записи на стене ее владельца (если запись является копией записи с чужой стены).
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CopyText">
-            <summary>
-            Текст комментария, добавленного при копировании (если запись является копией записи с чужой стены).
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CopyHistory">
-            <summary>
-            Массив, содержащий историю репостов для записи. Возвращается только в том случае, если запись является репостом.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CreatedBy">
-            <summary>
-            Идентификатор создателя записи в группе или паблике (тот, кто фактически ее написал)
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CopyCommenterId">
-            <summary>
-            Если запись является копией записи с чужой стены, то в этом поле содержится идентификатор коментатора записи.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CopyCommentId">
-            <summary>
-            Если запись является копией записи с чужой стены, то в этом поле содержится идентификатор коментария.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CanDelete">
-            <summary>
-            Признак может ли текущий пользователь удалить эту запись.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CanEdit">
-            <summary>
-            Признак может ли текущий пользователь редактировать эту запись.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.CanPin">
-            <summary>
-            Информация о том, может ли текущий пользователь закрепить запись (1 — может, 0 — не может)
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Wall.MarkedAsAds">
-            <summary>
-            Информация о том, содержит ли запись отметку "реклама"
-            </summary>
-        </member>
-        <member name="M:VkNet.Model.Wall.FromJson(VkNet.Utils.VkResponse)">
-            <summary>
-            Парсинг из JSON
-            </summary>
-            <param name="response"></param>
-            <returns></returns>
-        </member>
-        <member name="M:VkNet.Model.Wall.op_Explicit(VkNet.Model.Post)~VkNet.Model.Wall">
-            <summary>
-            Приведение к <c>Wall</c> из <c>Post</c>
-            </summary>
-            <param name="post"></param>
-        </member>
         <member name="T:VkNet.Model.AudioAlbum">
             <summary>
             Информация об аудиоальбоме.
@@ -16772,32 +16410,7 @@
         </member>
         <member name="P:VkNet.Model.Chat.Left">
             <summary>
-            флаг, указывающий, что пользователь покинул беседу. Всегда содержит 1.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Chat.Kicked">
-            <summary>
-            флаг, указывающий, что пользователь был исключен из беседы. Всегда содержит 1.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Chat.Photo50">
-            <summary>
-            URL изображения-обложки чата шириной 50 px (если доступно).
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Chat.Photo100">
-            <summary>
-            URL изображения-обложки чата шириной 100 px (если доступно).
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Chat.Photo200">
-            <summary>
-            URL изображения-обложки чата шириной 200 px (если доступно).
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Chat.PushSettings">
-            <summary>
-            Настройки оповещений для диалога..
+            Состоит ли аккаунт в беседе или покинул ее
             </summary>
         </member>
         <member name="P:VkNet.Model.Chat.Sound">
@@ -16956,11 +16569,6 @@
         <member name="P:VkNet.Model.Comments.CanPost">
             <summary>
             Признак может ли текущий пользователь добавить комментарий к записи.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.Comments.GroupsCanPost">
-            <summary>
-            Информация о том, могут ли сообщества комментировать запись..
             </summary>
         </member>
         <member name="M:VkNet.Model.Comments.FromJson(VkNet.Utils.VkResponse)">
@@ -17911,11 +17519,6 @@
             Информация о том, разрешено ли сообществу отправлять сообщения текущему пользователю.
             </summary>
         </member>
-        <member name="P:VkNet.Model.Group.Trending">
-            <summary>
-            Информация о том, есть ли у сообщества «огонёк».
-            </summary>
-        </member>
         <member name="M:VkNet.Model.Group.FromJson(VkNet.Utils.VkResponse)">
             <summary>
             Разобрать из json.
@@ -18840,28 +18443,6 @@
             <param name="response">Ответ сервера.</param>
             <returns></returns>
         </member>
-        <member name="P:VkNet.Model.MessagesSendResult.PeerId">
-            <summary>
-            Идентификатор назначения;
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.MessagesSendResult.MessageId">
-            <summary>
-            Идентификатор сообщения
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.MessagesSendResult.Error">
-            <summary>
-            Cообщение об ошибке, если сообщение не было доставлено получателю. 
-            </summary>
-        </member>
-        <member name="M:VkNet.Model.MessagesSendResult.FromJson(VkNet.Utils.VkResponse)">
-            <summary>
-            Разобрать из json.
-            </summary>
-            <param name="response">Ответ сервера.</param>
-            <returns></returns>
-        </member>
         <member name="T:VkNet.Model.Military">
             <summary>
             Информация о военной службе пользователя.
@@ -19441,6 +19022,33 @@
             <param name="response">Ответ сервера.</param>
             <returns></returns>
         </member>
+        <member name="T:VkNet.Model.PollAnswerVoters">
+            <summary>
+            Объект для перечисления пользователей, которые выбрали определенные варианты ответа в опросе.
+            </summary>
+        </member>
+        <member name="P:VkNet.Model.PollAnswerVoters.AnswerId">
+            <summary>
+            Идентификатор варианта ответа
+            </summary>
+        </member>
+        <member name="P:VkNet.Model.PollAnswerVoters.Users">
+            <summary>
+            Коллекция пользователей, только если Fields != null
+            </summary>
+        </member>
+        <member name="P:VkNet.Model.PollAnswerVoters.UsersIds">
+            <summary>
+            Коллекция идентификаторов пользователей, только если Fields = null
+            </summary>
+        </member>
+        <member name="M:VkNet.Model.PollAnswerVoters.FromJson(VkNet.Utils.VkResponse)">
+            <summary>
+            Разобрать из json.
+            </summary>
+            <param name="response">Ответ сервера.</param>
+            <returns></returns>
+        </member>
         <member name="T:VkNet.Model.PollAnswer">
             <summary>
             Вариант ответа в опросе
@@ -19467,33 +19075,6 @@
             </summary>
         </member>
         <member name="M:VkNet.Model.PollAnswer.FromJson(VkNet.Utils.VkResponse)">
-            <summary>
-            Разобрать из json.
-            </summary>
-            <param name="response">Ответ сервера.</param>
-            <returns></returns>
-        </member>
-        <member name="T:VkNet.Model.PollAnswerVoters">
-            <summary>
-            Объект для перечисления пользователей, которые выбрали определенные варианты ответа в опросе.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.PollAnswerVoters.AnswerId">
-            <summary>
-            Идентификатор варианта ответа
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.PollAnswerVoters.Users">
-            <summary>
-            Коллекция пользователей, только если Fields != null
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.PollAnswerVoters.UsersIds">
-            <summary>
-            Коллекция идентификаторов пользователей, только если Fields = null
-            </summary>
-        </member>
-        <member name="M:VkNet.Model.PollAnswerVoters.FromJson(VkNet.Utils.VkResponse)">
             <summary>
             Разобрать из json.
             </summary>
@@ -19643,38 +19224,38 @@
         </member>
         <member name="T:VkNet.Model.Previews">
             <summary>
-            ����� Uri � ��������� � ��������� �����������.
-            ������������ � User
+            Набор Uri к картинкам с различным разрешениям.
+            Используется в User
             </summary>
         </member>
         <member name="P:VkNet.Model.Previews.Photo50">
             <summary>
-            Uri ���������� ����������, ������� ������ 50 ��������.
+            Uri квадратной фотографии, имеющей ширину 50 пикселей.
             </summary>
         </member>
         <member name="P:VkNet.Model.Previews.Photo100">
             <summary>
-            Uri ���������� ����������, ������� ������ 100 ��������.
+            Uri квадратной фотографии, имеющей ширину 100 пикселей.
             </summary>
         </member>
         <member name="P:VkNet.Model.Previews.Photo130">
             <summary>
-            Uri ���������� ����������, ������� ������ 130 ��������.
+            Uri квадратной фотографии, имеющей ширину 130 пикселей.
             </summary>
         </member>
         <member name="P:VkNet.Model.Previews.Photo200">
             <summary>
-            Uri ���������� ����������, ������� ������ 200 ��������.
+            Uri квадратной фотографии, имеющей ширину 200 пикселей.
             </summary>
         </member>
         <member name="P:VkNet.Model.Previews.Photo400">
             <summary>
-            Uri ���������� ����������, ������� ������ 400 ��������.
+            Uri квадратной фотографии, имеющей ширину 400 пикселей.
             </summary>
         </member>
         <member name="P:VkNet.Model.Previews.PhotoMax">
             <summary>
-            Uri ���������� ����������, ������� ������������ ������.
+            Uri квадратной фотографии, имеющей максимальную ширину.
             </summary>
         </member>
         <member name="P:VkNet.Model.Previews.Photo">
@@ -19684,9 +19265,9 @@
         </member>
         <member name="M:VkNet.Model.Previews.FromJson(VkNet.Utils.VkResponse)">
             <summary>
-            ��������� �� json.
+            Разобрать из json.
             </summary>
-            <param name="response">����� �������.</param>
+            <param name="response">Ответ сервера.</param>
             <returns></returns>
         </member>
         <member name="T:VkNet.Model.Price">
@@ -23551,39 +23132,6 @@
             <param name="p">Параметры.</param>
             <returns></returns>
         </member>
-        <member name="T:VkNet.Model.RequestParams.PollsAddVoteParams">
-            <summary>
-            Список параметров для метода polls.addVote
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.PollsAddVoteParams.OwnerId">
-            <summary>
-            Идентификатор владельца опроса.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.PollsAddVoteParams.IsBoard">
-             <summary>
-             True — опрос находится в обсуждении, False — опрос прикреплен к стене.
-            По умолчанию — False.
-             </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.PollsAddVoteParams.PollId">
-            <summary>
-            Идентификатор опроса.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.PollsAddVoteParams.AnswerId">
-            <summary>
-            Идентификатор варианта ответа.
-            </summary>
-        </member>
-        <member name="M:VkNet.Model.RequestParams.PollsAddVoteParams.ToVkParameters(VkNet.Model.RequestParams.PollsAddVoteParams)">
-            <summary>
-            Привести к типу VkParameters.
-            </summary>
-            <param name="p">Параметры.</param>
-            <returns></returns>
-        </member>
         <member name="T:VkNet.Model.RequestParams.PollsCreateParams">
             <summary>
             Список параметров для метода polls.create
@@ -23694,28 +23242,33 @@
             <param name="p">Параметры.</param>
             <returns></returns>
         </member>
-        <member name="T:VkNet.Model.RequestParams.PollsGetByIdParams">
+        <member name="T:VkNet.Model.RequestParams.PollsAddVoteParams">
             <summary>
-            Список параметров для метода polls.getById
+            Список параметров для метода polls.addVote
             </summary>
         </member>
-        <member name="P:VkNet.Model.RequestParams.PollsGetByIdParams.OwnerId">
+        <member name="P:VkNet.Model.RequestParams.PollsAddVoteParams.OwnerId">
             <summary>
             Идентификатор владельца опроса.
             </summary>
         </member>
-        <member name="P:VkNet.Model.RequestParams.PollsGetByIdParams.IsBoard">
+        <member name="P:VkNet.Model.RequestParams.PollsAddVoteParams.IsBoard">
              <summary>
              True — опрос находится в обсуждении, False — опрос прикреплен к стене.
             По умолчанию — False.
              </summary>
         </member>
-        <member name="P:VkNet.Model.RequestParams.PollsGetByIdParams.PollId">
+        <member name="P:VkNet.Model.RequestParams.PollsAddVoteParams.PollId">
             <summary>
             Идентификатор опроса.
             </summary>
         </member>
-        <member name="M:VkNet.Model.RequestParams.PollsGetByIdParams.ToVkParameters(VkNet.Model.RequestParams.PollsGetByIdParams)">
+        <member name="P:VkNet.Model.RequestParams.PollsAddVoteParams.AnswerId">
+            <summary>
+            Идентификатор варианта ответа.
+            </summary>
+        </member>
+        <member name="M:VkNet.Model.RequestParams.PollsAddVoteParams.ToVkParameters(VkNet.Model.RequestParams.PollsAddVoteParams)">
             <summary>
             Привести к типу VkParameters.
             </summary>
@@ -23776,6 +23329,34 @@
             </summary>
         </member>
         <member name="M:VkNet.Model.RequestParams.PollsGetVotersParams.ToVkParameters(VkNet.Model.RequestParams.PollsGetVotersParams)">
+            <summary>
+            Привести к типу VkParameters.
+            </summary>
+            <param name="p">Параметры.</param>
+            <returns></returns>
+        </member>
+        <member name="T:VkNet.Model.RequestParams.PollsGetByIdParams">
+            <summary>
+            Список параметров для метода polls.getById
+            </summary>
+        </member>
+        <member name="P:VkNet.Model.RequestParams.PollsGetByIdParams.OwnerId">
+            <summary>
+            Идентификатор владельца опроса.
+            </summary>
+        </member>
+        <member name="P:VkNet.Model.RequestParams.PollsGetByIdParams.IsBoard">
+             <summary>
+             True — опрос находится в обсуждении, False — опрос прикреплен к стене.
+            По умолчанию — False.
+             </summary>
+        </member>
+        <member name="P:VkNet.Model.RequestParams.PollsGetByIdParams.PollId">
+            <summary>
+            Идентификатор опроса.
+            </summary>
+        </member>
+        <member name="M:VkNet.Model.RequestParams.PollsGetByIdParams.ToVkParameters(VkNet.Model.RequestParams.PollsGetByIdParams)">
             <summary>
             Привести к типу VkParameters.
             </summary>
@@ -24559,80 +24140,6 @@
             <param name="p">Параметры.</param>
             <returns></returns>
         </member>
-        <member name="T:VkNet.Model.RequestParams.WallCreateCommentParams">
-            <summary>
-            Параметры метода wall.addComment
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.WallCreateCommentParams.OwnerId">
-            <summary>
-            Идентификатор пользователя или сообщества, на чьей стене находится запись, к которой необходимо добавить комментарий. Обратите внимание, идентификатор сообщества в параметре owner_id необходимо указывать со знаком "-" — например, owner_id=-1 соответствует идентификатору сообщества ВКонтакте API (club1)  целое число, по умолчанию идентификатор текущего пользователя.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.WallCreateCommentParams.PostId">
-            <summary>
-            Идентификатор записи на стене пользователя или сообщества. положительное число, обязательный параметр.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.WallCreateCommentParams.FromGroup">
-            <summary>
-            Идентификатор сообщества, от имени которого публикуется комментарий. По умолчанию: 0.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.WallCreateCommentParams.Message">
-            <summary>
-            Текст комментария. Обязательный параметр, если не передан параметр attachments
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.WallCreateCommentParams.ReplyToComment">
-            <summary>
-            Идентификатор комментария, в ответ на который должен быть добавлен новый комментарий. целое число.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.WallCreateCommentParams.Attachments">
-            <summary>
-            Список объектов, приложенных к комментарию и разделённых символом ",". Поле attachments представляется в формате:
-            &lt;type&gt;&lt;owner_id&gt;_&lt;media_id&gt;,&lt;type&gt;&lt;owner_id&gt;_&lt;media_id&gt;
-            &lt;type&gt; — тип медиа-вложения:
-            photo — фотография 
-            video — видеозапись 
-            audio — аудиозапись 
-            doc — документ
-            &lt;owner_id&gt; — идентификатор владельца медиа-вложения 
-            &lt;media_id&gt; — идентификатор медиа-вложения. 
-            
-            Например:
-            photo100172_166443618,photo66748_265827614
-            Параметр является обязательным, если не задан параметр text. список строк, разделенных через запятую.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.WallCreateCommentParams.StickerId">
-            <summary>
-            Идентификатор стикера. положительное число.
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.WallCreateCommentParams.Guid">
-            <summary>
-            Уникальный идентификатор, предназначенный для предотвращения повторной отправки одинакового комментария. .
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.WallCreateCommentParams.CaptchaSid">
-            <summary>
-            Идентификатор капчи
-            </summary>
-        </member>
-        <member name="P:VkNet.Model.RequestParams.WallCreateCommentParams.CaptchaKey">
-            <summary>
-            текст, который ввел пользователь
-            </summary>
-        </member>
-        <member name="M:VkNet.Model.RequestParams.WallCreateCommentParams.ToVkParameters(VkNet.Model.RequestParams.WallCreateCommentParams)">
-            <summary>
-            Привести к типу VkParameters.
-            </summary>
-            <param name="p">Параметры.</param>
-            <returns></returns>
-        </member>
         <member name="T:VkNet.Model.RequestParams.WallEditParams">
             <summary>
             Параметры метода wall.edit
@@ -25410,64 +24917,64 @@
         </member>
         <member name="T:VkNet.Model.Tag">
             <summary>
-            ������� � �����������.
+            Отметка к видеозаписи.
             </summary>
         </member>
         <member name="P:VkNet.Model.Tag.Id">
             <summary>
-            ������������� �������.
+            Идентификатор отметки.
             </summary>
         </member>
         <member name="P:VkNet.Model.Tag.TaggedName">
             <summary>
-            �������� �������.
+            Название отметки.
             </summary>
         </member>
         <member name="P:VkNet.Model.Tag.UserId">
             <summary>
-            ������������� ������������, �������� ������������� �������.
+            Идентификатор пользователя, которому соответствует отметка.
             </summary>
         </member>
         <member name="P:VkNet.Model.Tag.PlacerId">
             <summary>
-            ������������� ������������, ���������� �������.
+            Идентификатор пользователя, сделавшего отметку.
             </summary>
         </member>
         <member name="P:VkNet.Model.Tag.Date">
             <summary>
-            ���� ���������� �������.
+            Дата добавления отметки.
             </summary>
         </member>
         <member name="P:VkNet.Model.Tag.IsViewed">
             <summary>
-            ������ �������: true - ��������������, false - �� ��������������.
+            Статус отметки: true - подтвержденная, false - не подтвержденная.
             </summary>
         </member>
         <member name="P:VkNet.Model.Tag.X">
             <summary>
-            ���������� ������������� �������, �� ������� ������� ������� (������� ����� ���� � ������ ������ ����) � ���������.
+            Координаты прямоугольной области, на которой сделана отметка (верхний левый угол и нижний правый угол) в процентах.
             </summary>
         </member>
         <member name="P:VkNet.Model.Tag.Y">
             <summary>
-            ���������� ������������� �������, �� ������� ������� ������� (������� ����� ���� � ������ ������ ����) � ���������.
+            Координаты прямоугольной области, на которой сделана отметка (верхний левый угол и нижний правый угол) в процентах.
             </summary>
         </member>
         <member name="P:VkNet.Model.Tag.X2">
             <summary>
-            ���������� ������������� �������, �� ������� ������� ������� (������� ����� ���� � ������ ������ ����) � ���������.
+            Координаты прямоугольной области, на которой сделана отметка (верхний левый угол и нижний правый угол) в процентах.
             </summary>
         </member>
         <member name="P:VkNet.Model.Tag.Y2">
             <summary>
-            ���������� ������������� �������, �� ������� ������� ������� (������� ����� ���� � ������ ������ ����) � ���������.
+            Координаты прямоугольной области, на которой сделана отметка (верхний левый угол и нижний правый угол) в процентах.
             </summary>
         </member>
         <member name="M:VkNet.Model.Tag.FromJson(VkNet.Utils.VkResponse)">
             <summary>
-            ��������� �� json.
+            Разобрать из json.
             </summary>
-            <param name="response">����� �������.</param>
+            <param name="response">Ответ сервера.</param>
             <returns></returns>
         </member>
         <member name="T:VkNet.Model.Tags">
@@ -26098,11 +25605,6 @@
             Возвращается 1, если запрашиваемый пользователь находится в черном списке у текущего пользователя.
             </summary>
         </member>
-        <member name="P:VkNet.Model.User.Trending">
-            <summary>
-            Возвращается 1, если запрашиваемый пользователь находится в черном списке у текущего пользователя.
-            </summary>
-        </member>
         <member name="M:VkNet.Model.User.FromJson(VkNet.Utils.VkResponse)">
             <summary>
             
@@ -26544,6 +26046,21 @@
             <param name="parameters">Параметры метода api</param>
             <returns>Строка в формате json</returns>
         </member>
+        <member name="M:VkNet.Utils.Browser.UploadFile(System.String,System.String)">
+            <summary>
+            Загружает файл на заданный Uri
+            </summary>
+            <param name="uploadUrl">Адрес для загрузки</param>
+            <param name="path">Путь к файлу</param>
+            <returns>Cтрока, используемая далее в Vk API</returns>
+        </member>
+        <member name="M:VkNet.Utils.Browser.DownloadFile(System.String,System.String)">
+            <summary>
+            Скачивает файл по заданному Uri
+            </summary>
+            <param name="url">Uri для скачки</param>
+            <param name="path">Путь сохранения файла</param>
+        </member>
         <member name="M:VkNet.Utils.Browser.Authorize(System.UInt64,System.String,System.String,VkNet.Enums.Filters.Settings,System.Func{System.String},System.Nullable{System.Int64},System.String)">
             <summary>
             Авторизация на сервере ВК
@@ -26557,33 +26074,6 @@
             <param name="captchaKey">Текст капчи</param>
             <returns>Информация об авторизации приложения</returns>
         </member>
-        <member name="M:VkNet.Utils.Browser.FilledTwoFactorForm(System.Func{System.String},VkNet.Utils.WebCallResult)">
-            <summary>
-            Заполнить форму двухфакторной авторизации
-            </summary>
-            <param name="code">Функция возвращающая код двухфакторной авторизации</param>
-            <param name="loginFormPostResult">Ответ сервера vk</param>
-            <returns>Ответ сервера vk</returns>
-        </member>
-        <member name="M:VkNet.Utils.Browser.HasNotTwoFactor(System.Func{System.String},VkNet.Utils.WebCallResult)">
-            <summary>
-            Проверка наличия двухфакторной авторизации
-            </summary>
-            <param name="code">Функция возвращающая код двухфакторной авторизации</param>
-            <param name="loginFormPostResult">Ответ сервера vk</param>
-            <returns></returns>
-        </member>
-        <member name="M:VkNet.Utils.Browser.FilledLoginForm(System.String,System.String,System.Nullable{System.Int64},System.String,VkNet.Utils.WebCallResult)">
-            <summary>
-            Заполнить форму логин и пароль
-            </summary>
-            <param name="email">Логин</param>
-            <param name="password">Пароль</param>
-            <param name="captchaSid">ИД капчи</param>
-            <param name="captchaKey">Значение капчи</param>
-            <param name="authorizeUrlResult"></param>
-            <returns></returns>
-        </member>
         <member name="M:VkNet.Utils.Browser.Validate(System.String,System.String)">
             <summary>
             Выполняет обход ошибки валидации: https://vk.com/dev/need_validation
@@ -26591,15 +26081,6 @@
             <param name="validateUrl">Адрес страницы валидации</param>
             <param name="phoneNumber">Номер телефона, который необходимо ввести на странице валидации</param>
             <returns>Информация об авторизации приложения.</returns>
-        </member>
-        <member name="M:VkNet.Utils.Browser.EndAuthorize(VkNet.Utils.WebCallResult,System.Net.IWebProxy)">
-            <summary>
-            Закончить авторизацию
-            </summary>
-            <param name="result">Результат</param>
-            <param name="webProxy">Настройки прокси</param>
-            <returns></returns>
-            <exception cref="T:VkNet.Exception.CaptchaNeededException"></exception>
         </member>
         <member name="M:VkNet.Utils.Browser.CreateAuthorizeUrlFor(System.UInt64,VkNet.Enums.Filters.Settings,VkNet.Enums.SafetyEnums.Display)">
             <summary>
@@ -26609,36 +26090,6 @@
             <param name="settings">Настройки прав доступа.</param>
             <param name="display">Вид окна авторизации.</param>
             <returns>Возвращает Uri для авторизации</returns>
-        </member>
-        <member name="M:VkNet.Utils.Browser.OpenAuthDialog(System.UInt64,VkNet.Enums.Filters.Settings)">
-            <summary>
-            Открытие окна авторизации  
-            </summary>
-            <param name="appId">id приложения</param>
-            <param name="settings">Настройки приложения</param>
-            <returns></returns>
-        </member>
-        <member name="M:VkNet.Utils.Browser.IsAuthSuccessfull(VkNet.Utils.WebCallResult)">
-            <summary>
-            Авторизация прошла успешно
-            </summary>
-            <param name="webCallResult"></param>
-            <returns>true, если авторизация прошла успешно</returns>
-        </member>
-        <member name="M:VkNet.Utils.Browser.UriHasAccessToken(System.Uri)">
-            <summary>
-            Проверка наличия токена в url
-            </summary>
-            <param name="uri"></param>
-            <returns></returns>
-        </member>
-        <member name="M:VkNet.Utils.Browser.GetTokenUri(VkNet.Utils.WebCallResult)">
-            <summary>
-            Получить токен из uri
-            </summary>
-            <param name="webCallResult">Результат запроса</param>
-            <returns>Возвращает uri содержащий токен</returns>
-            <exception cref="T:VkNet.Exception.VkApiException">URI должен содержать токен!</exception>
         </member>
         <member name="T:VkNet.Utils.Cookies">
             <summary>
@@ -26978,11 +26429,6 @@
             Превышен лимит комментариев на стене
             </summary>
         </member>
-        <member name="F:VkNet.Utils.ErrorCode.ToomanyAdsPosts">
-            <summary>
-            Превышен лимит комментариев на стене
-            </summary>
-        </member>
         <member name="F:VkNet.Utils.ErrorCode.GroupsListAccessDenied">
             <summary>
             Доступ к списку групп запрещен из-за настроек конфиденциальности пользователя.
@@ -27039,16 +26485,6 @@
         <member name="F:VkNet.Utils.ErrorCode.CannotSendDuePrivacy">
             <summary>
             Нельзя отправлять сообщения этому пользователю в связи с настройками приватности.
-            </summary>
-        </member>
-        <member name="F:VkNet.Utils.ErrorCode.TooMuchSentMessages">
-            <summary>
-            Слишком много пересланных сообщений.
-            </summary>
-        </member>
-        <member name="F:VkNet.Utils.ErrorCode.MessageIsTooLong">
-            <summary>
-            Сообщение слишком длинное.
             </summary>
         </member>
         <member name="T:VkNet.Utils.File">
@@ -27820,15 +27256,6 @@
             Результат преобразования.
             </returns> 
         </member>
-        <member name="M:VkNet.Utils.VkParameters.op_Implicit(VkNet.Model.RequestParams.WallCreateCommentParams)~VkNet.Utils.VkParameters">
-            <summary>
-            Преобразование класса <see cref="T:VkNet.Model.RequestParams.WallCreateCommentParams"/> в VkParameters
-            </summary>
-            <param name="p">Параметр.</param>
-            <returns>
-            Результат преобразования.
-            </returns> 
-        </member>
         <member name="M:VkNet.Utils.VkParameters.op_Implicit(VkNet.Model.RequestParams.WallEditParams)~VkNet.Utils.VkParameters">
             <summary>
             Преобразование класса <see cref="T:VkNet.Model.RequestParams.WallEditParams"/> в VkParameters
@@ -28062,7 +27489,7 @@
             <param name="json">Json.</param>
             <returns>Json</returns>
         </member>
-        <member name="M:VkNet.Utils.Utilities.SerializeToJson``1(``0)">
+        <member name="M:VkNet.Utils.Utilities.SerializeToJson(System.Object)">
             <summary>
             Сериализует объект в JSON
             </summary>
@@ -28079,17 +27506,17 @@
             Список наименования полей.
             </summary>
         </member>
-        <member name="M:VkNet.Utils.VkAuthorization.#ctor(System.String)">
+        <member name="M:VkNet.Utils.VkAuthorization.#ctor(System.Uri)">
             <summary>
             Конструктор.
             </summary>
-            <param name="uriFragment">URL ответа.</param>
+            <param name="responseUrl">URL ответа.</param>
         </member>
-        <member name="M:VkNet.Utils.VkAuthorization.From(System.String)">
+        <member name="M:VkNet.Utils.VkAuthorization.From(System.Uri)">
             <summary>
             Извлекает из URL, на которую произошло перенаправление при авторизации, информацию об авторизации.
             </summary>
-            <param name="uriFragment">
+            <param name="responseUrl">
             URL, на которую произошло перенаправление при авторизации.
             </param>
             <returns>Информация об авторизации.</returns>
@@ -28119,12 +27546,7 @@
             Идентификатор пользователя, у которого работает приложение (от имени которого был произведен вход).
             </summary>
         </member>
-        <member name="P:VkNet.Utils.VkAuthorization.Email">
-            <summary>
-            E-mail пользователя, у которого работает приложение (от имени которого был произведен вход).
-            </summary>
-        </member>
-        <member name="P:VkNet.Utils.VkAuthorization.IsCaptchaNeeded">
+        <member name="P:VkNet.Utils.VkAuthorization.CaptchaId">
             <summary>
             ID капчи, если она появилась
             </summary>
@@ -28136,11 +27558,52 @@
             <param name="fieldName">Наименование поля.</param>
             <returns>Значение поля.</returns>
         </member>
-        <member name="M:VkNet.Utils.VkAuthorization.Decode(System.String)">
+        <member name="T:VkNet.Utils.VkAuthorization.NameValue">
+            <summary>
+            Наименование поля.
+            </summary>
+        </member>
+        <member name="P:VkNet.Utils.VkAuthorization.NameValue.Name">
+            <summary>
+            Наименование.
+            </summary>
+        </member>
+        <member name="P:VkNet.Utils.VkAuthorization.NameValue.Value">
+            <summary>
+            Значение.
+            </summary>
+        </member>
+        <member name="M:VkNet.Utils.VkAuthorization.NameValue.#ctor(System.String,System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="name">Наименование.</param>
+            <param name="value">Значение.</param>
+        </member>
+        <member name="M:VkNet.Utils.VkAuthorization.NameValue.ToString">
+            <summary>
+            Преобразовать в строку.
+            </summary>
+        </member>
+        <member name="M:VkNet.Utils.VkAuthorization.Decode(System.Uri)">
             <summary>
             Расшифровывает указанный URL.
             </summary>
-            <param name="urlFragment">URL.</param>
+            <param name="url">URL.</param>
+            <returns>Список наименования полей.</returns>
+        </member>
+        <member name="M:VkNet.Utils.VkAuthorization.DecodeQuery(System.Uri)">
+            <summary>
+            Расшифровывает вопрос.
+            </summary>
+            <param name="url">URL.</param>
+            <returns>Список наименования полей.</returns>
+        </member>
+        <member name="M:VkNet.Utils.VkAuthorization.DecodeFragment(System.Uri)">
+            <summary>
+            Расшифровывает фрагмент.
+            </summary>
+            <param name="url">URL.</param>
             <returns>Список наименования полей.</returns>
         </member>
         <member name="T:VkNet.Utils.VkCollection`1">
@@ -28723,24 +28186,6 @@
             </returns>
         </member>
         <member name="M:VkNet.Utils.VkResponse.op_Implicit(VkNet.Utils.VkResponse)~VkNet.Enums.WallContentAccess">
-            <summary>
-            Преобразовать из VkResponse
-            </summary>
-            <param name="response">Ответ.</param>
-            <returns>
-            Результат преобразования.
-            </returns>
-        </member>
-        <member name="M:VkNet.Utils.VkResponse.op_Implicit(VkNet.Utils.VkResponse)~VkNet.Model.MessagesSendResult">
-            <summary>
-            Преобразовать из VkResponse
-            </summary>
-            <param name="response">Ответ.</param>
-            <returns>
-            Результат преобразования.
-            </returns>
-        </member>
-        <member name="M:VkNet.Utils.VkResponse.op_Implicit(VkNet.Utils.VkResponse)~System.Collections.ObjectModel.Collection{VkNet.Model.MessagesSendResult}">
             <summary>
             Преобразовать из VkResponse
             </summary>
@@ -31723,6 +31168,41 @@
             <param name="stream">Поток.</param>
             <param name="encoding">Кодировка.</param>
         </member>
+        <member name="T:VkNet.Utils.WebClient">
+            <summary>
+            Подмена WebClient
+            </summary>
+        </member>
+        <member name="F:VkNet.Utils.WebClient._client">
+            <summary>
+            HTTP клиент
+            </summary>
+        </member>
+        <member name="M:VkNet.Utils.WebClient.#ctor">
+            <summary>
+            Инициализация класса
+            </summary>
+        </member>
+        <member name="M:VkNet.Utils.WebClient.UploadFile(System.String,System.String)">
+            <summary>
+            Выгружает указанный локальный файл ресурс с указанным URI.
+            </summary>
+            <param name="address">URI ресурса, на этот файл. Например ftp://localhost/samplefile.txt. </param>
+            <param name="fileName">Файл для отправки на ресурс. Например «samplefile.txt».</param>
+            <returns>Массив байтов</returns>
+        </member>
+        <member name="M:VkNet.Utils.WebClient.DownloadFile(System.String,System.String)">
+            <summary>
+            Загружает ресурс с указанным URI в локальный файл.
+            </summary>
+            <param name="address">URI, с которого будут загружены данные.</param>
+            <param name="fileName">Имя локального файла, который будет получать данные.</param>
+        </member>
+        <member name="M:VkNet.Utils.WebClient.Dispose">
+            <summary>
+            Освобождение ресурсов.
+            </summary>
+        </member>
         <member name="T:VkNet.Utils.WebForm">
             <summary>
             WEB форма
@@ -31804,11 +31284,8 @@
         </member>
         <member name="P:VkNet.Utils.WebForm.OriginalUrl">
             <summary>
-            Gets the original URL.
+            
             </summary>
-            <value>
-            The original URL.
-            </value>
         </member>
         <member name="M:VkNet.Utils.WebForm.GetRequest">
             <summary>
@@ -31834,6 +31311,11 @@
             </summary>
             <returns>HTML элемент</returns>
             <exception cref="T:VkNet.Exception.VkApiException">Элемент не найден на форме.</exception>
+        </member>
+        <member name="M:VkNet.Utils.WebForm.Dispose">
+            <summary>
+            Освободить ресурсы
+            </summary>
         </member>
         <member name="T:VkNet.Utils.WebProxy">
             <summary>
@@ -32251,6 +31733,102 @@
             </summary>
             <param name="validateUrl">Адрес, на который нужно перейти для валидации</param>
             <param name="phoneNumber">Номер телефона, который нужно ввести на странице валидации</param>
+        </member>
+        <member name="T:VkNet.Properties.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.AddFriendStatus_Accepted">
+            <summary>
+              Ищет локализованную строку, похожую на Заявка на добавление в друзья от данного пользователя одобрена.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.AddFriendStatus_Resubmit">
+            <summary>
+              Ищет локализованную строку, похожую на Повторная отправка заявки.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.AddFriendStatus_Sended">
+            <summary>
+              Ищет локализованную строку, похожую на Заявка на добавление данного пользователя в друзья отправлена.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.AddFriendStatus_Unknown">
+            <summary>
+              Ищет локализованную строку, похожую на Статус ответа неизвестен.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.MaritalStatus_Engaged">
+            <summary>
+              Ищет локализованную строку, похожую на Помолвлен.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.MaritalStatus_InLove">
+            <summary>
+              Ищет локализованную строку, похожую на Влюблён.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.MaritalStatus_ItsComplicated">
+            <summary>
+              Ищет локализованную строку, похожую на Всё сложно.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.MaritalStatus_Married">
+            <summary>
+              Ищет локализованную строку, похожую на Женат.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.MaritalStatus_Meets">
+            <summary>
+              Ищет локализованную строку, похожую на Встречается.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.MaritalStatus_Single">
+            <summary>
+              Ищет локализованную строку, похожую на Не женат.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.MaritalStatus_TheActiveSearch">
+            <summary>
+              Ищет локализованную строку, похожую на В активном поиске.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.Sex_Female">
+            <summary>
+              Ищет локализованную строку, похожую на Женский.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.Sex_Male">
+            <summary>
+              Ищет локализованную строку, похожую на Мужской.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.Sex_Unknown">
+            <summary>
+              Ищет локализованную строку, похожую на Не указан.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.UserSort_ByPopularity">
+            <summary>
+              Ищет локализованную строку, похожую на По популярности.
+            </summary>
+        </member>
+        <member name="P:VkNet.Properties.Resources.UserSort_ByRegDate">
+            <summary>
+              Ищет локализованную строку, похожую на По дате регистрации.
+            </summary>
         </member>
     </members>
 </doc>

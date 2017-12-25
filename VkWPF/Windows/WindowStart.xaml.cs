@@ -19,7 +19,7 @@ namespace VkWPF.Windows
             
             Image image = new Image();
             image.Source = new BitmapImage(_vk.Users.Get(_vk.UserId.Value, VkNet.Enums.Filters.ProfileFields.PhotoMaxOrig).PhotoMaxOrig);
-            image.Effect = new BlurEffect() { Radius = 30, KernelType = KernelType.Gaussian,RenderingBias=RenderingBias.Quality};
+            image.Effect = new BlurEffect() { Radius = 25, KernelType = KernelType.Gaussian,RenderingBias=RenderingBias.Quality};
             Back.Visual = image;
         }
 
@@ -30,11 +30,7 @@ namespace VkWPF.Windows
 
         private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-            frameMain.Content = new Pages.PageStatistic(); 
-        }
-
-        private void frameMain_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
+            frameMain.Content = new Pages.PageSettings(); 
         }
 
         private void StartWindow_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -54,6 +50,18 @@ namespace VkWPF.Windows
         private void menuFriends_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             frameMain.Content = new Pages.PageFriends();
+        }
+
+        private void menuStatistic_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            frameMain.Content = new Pages.PageStatistic();
+        }
+
+        private void btnChangeUser_Click(object sender, RoutedEventArgs e)
+        {
+            Classes.Logining.SignOut();
+            new Windows.WindowLogin().Show();
+            this.Hide();
         }
     }
 }

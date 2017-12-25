@@ -17,7 +17,12 @@ namespace VkWPF.Classes
         public VkCollection<User> FriendsList{ get; private set;}
         public VkCollection<User> GetFriendsListOnline() {
             var temp = FriendsList.Where(x => x.Online == true);
-            return new VkCollection<VkNet.Model.User>((ulong)temp.Count(), temp);
+            return new VkCollection<User>((ulong)temp.Count(), temp);
+        }
+        public VkCollection<User> GetFriendsListOnline(VkCollection<User> vkCollection)
+        {
+            var temp = vkCollection.Where(x => x.Online == true);
+            return new VkCollection<User>((ulong)temp.Count(), temp);
         }
         public VkCollection<User> FilterSex(VkNet.Enums.Sex sex)
         {
@@ -25,11 +30,7 @@ namespace VkWPF.Classes
             return new VkCollection<User>((ulong)list.Count(), list);
         }
         public User FilterOld(int year) {
-            //foreach (var user in FriendsList) {
-            //     if(user.BirthDate.Length==10 && user.BirthDate.Substring(5) == year.ToString())
-
-            //}
-            var temp = FriendsList.Where(x => (x.LastName == "Дрогомирецький" && x.BirthDate != null && x.BirthDate.Length > 5 )).First();
+            var temp = FriendsList.Where(x => (x.BirthDate != null && x.BirthDate.Length > 5 )).First();
             var a = temp.BirthDate.Substring(temp.BirthDate.Length-4);
             return temp;
         } 
@@ -64,11 +65,13 @@ namespace VkWPF.Classes
             if (vkCollection == null) return FriendsList.Count();
             else return vkCollection.Count();
         }
+
         public IEnumerable<User> GetRecent(int count)
         {
             var ids = _vk.Friends.GetRecent(5);
             return _vk.Users.Get(ids);
         }
+
         public IEnumerable<User> GetOdnoselchans()//ДН XD)
         {
             var moieselo = (_vk.Account.GetProfileInfo().City !=null) ? _vk.Account.GetProfileInfo().City.Title : null ;
@@ -77,8 +80,12 @@ namespace VkWPF.Classes
                 if(friend.City !=null && friend.City.Title ==moieselo)
                 yield return friend;
             }
-            
         }
+
+        /// <summary>
+        /// Метод виконує пошук друзів хто навчається або працює з залогіненим користувачем.
+        /// </summary>
+        /// <returns>Може бути null.</returns>
         public IEnumerable<User> WhoWorkWithMe()
         {
             var user = _vk.Users.Get(_vk.UserId.Value, ProfileFields.Schools | ProfileFields.Universities|ProfileFields.Career);

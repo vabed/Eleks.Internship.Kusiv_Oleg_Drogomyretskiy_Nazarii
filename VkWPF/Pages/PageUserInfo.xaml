@@ -9,9 +9,6 @@
       Title="PageUserInfo">
 
     <Grid>
-        <Label Content="Ім'я" HorizontalAlignment="Left" Margin="31,37,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Palatino Linotype" Width="104"/>
-        <Label x:Name="tFName" HorizontalAlignment="Left" Margin="168,42,0,0" Content="" VerticalAlignment="Top" FontFamily="Palatino Linotype" FontSize="20"/>
-        <Label Content="Прізвище" HorizontalAlignment="Left" Margin="31,63,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Palatino Linotype" Width="228"/>
-        <Label  x:Name="tLName" HorizontalAlignment="Left" Margin="168,68,0,0" Content="" VerticalAlignment="Top" FontFamily="Palatino Linotype" FontSize="20"/>
+        
     </Grid>
 </Page>

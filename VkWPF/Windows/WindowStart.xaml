@@ -11,14 +11,6 @@
         GlowBrush="Black"
         Closing="StartWindow_Closing" 
         >
-    <Window.Resources>
-        <Storyboard x:Key="sbShowLeftMenu" >
-            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-150,0,0,0" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:1" />
-        </Storyboard>
-        <Storyboard x:Key="sbHideLeftMenu">
-            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-150,0,0,0" AccelerationRatio=".9" Duration="0:0:1" />
-        </Storyboard>
-    </Window.Resources>
     
     <Controls:MetroWindow.Background>
         <VisualBrush x:Name="Back"/>
@@ -28,6 +20,7 @@
         <Controls:WindowCommands>
             <Button x:Name ="btnUserInfo"  Content="Аккаунт" Click="btnUserInfo_Click" />
             <Button x:Name ="btnSettings"  Content="Налаштування" Click="btnSettings_Click" />
+            <Button x:Name ="btnChangeUser"  Content="Змінити користувача" Click="btnChangeUser_Click" />
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
     <Grid Width="auto" Height="auto" MinWidth="297" MinHeight="300">
@@ -76,7 +69,7 @@
                     <Label x:Name="menuFriends" Content="Друзі" Width="140" FontFamily="Palatino Linotype" MouseDown="menuFriends_MouseDown"/>
                 </DockPanel>
                 <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" Width="200" >
-                    <Label x:Name="menuStatistic" Content="Статистика" Width="140" FontFamily="Palatino Linotype"/>
+                    <Label x:Name="menuStatistic" Content="Статистика" Width="140" FontFamily="Palatino Linotype" MouseDown="menuStatistic_MouseDown"/>
                 </DockPanel>
               
 

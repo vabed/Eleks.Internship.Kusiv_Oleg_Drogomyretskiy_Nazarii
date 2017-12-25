@@ -17,7 +17,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Column="0" Grid.Row="1">
+        <Grid Grid.Column="0" Grid.Row="1" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="*"/>
@@ -32,8 +32,14 @@
             </Grid>
             <Frame Grid.Row="1" x:Name="frameFriends" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
         </Grid>
-        <ListBox x:Name="History" HorizontalAlignment="Left" Height="526" VerticalAlignment="Top" Width="820" Grid.Column="1" Margin="10,10,0,0" FontFamily="Palatino Linotype" FontSize="21"/>
-        <TextBox x:Name="SendMessage" Grid.Column="1" HorizontalAlignment="Left" Height="49" Margin="10,541,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="820" FontFamily="Palatino Linotype" FontSize="16"/>
 
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>  
+            <ListBox x:Name="History" Grid.Row="0" Margin="25,25,25,0"  VerticalContentAlignment="Stretch" FontFamily="Palatino Linotype" FontSize="21"/>
+            <TextBox x:Name="SendMessage" Grid.Row="1"    Text="TextBox" VerticalAlignment="Top"   FontFamily="Palatino Linotype" FontSize="16" Margin="25,0,25,0"/>
+        </Grid>
     </Grid>
 </Page>

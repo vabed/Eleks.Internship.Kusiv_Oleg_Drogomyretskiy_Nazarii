@@ -12,8 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using VkNet;
-using VkNet.Enums.Filters;
 
 namespace VkWPF.Pages
 {
@@ -25,15 +23,6 @@ namespace VkWPF.Pages
         public PageUserInfo()
         {
             InitializeComponent();
-
-            var vk = Classes.Logining.Vk;
-            if (vk != null)
-            {
-                var info = vk.Account.GetProfileInfo();
-                tFName.Content = info.FirstName;
-                tLName.Content = info.LastName;
-            }
-            else this.Visibility = Visibility.Hidden;
         }
     }
 }

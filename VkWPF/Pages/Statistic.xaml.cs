@@ -18,7 +18,6 @@ using VkNet.Model;
 
 namespace VkWPF.Pages
 {
-   
     public partial class Statistic : Page
     {
         //Dictionary<int, double> value;
@@ -33,6 +32,7 @@ namespace VkWPF.Pages
         public Statistic()
         {
             InitializeComponent();
+            UpdateStatistic();
 
             /*
              * value = new Dictionary<int, double>();
@@ -49,18 +49,53 @@ namespace VkWPF.Pages
             //chart1.Series["series"].XValueMember = "Key";
             //chart1.Series["series"].YValueMembers = "Value";
 
+        }
+        private int[] GetCounts(Classes.Friends friends, bool forMine = true) {
+            if(forMine)
+                return new int[] {
+                    friends.Count(), friends.Count(friends.FilterSex(VkNet.Enums.Sex.Female)), friends.Count(friends.FilterSex(VkNet.Enums.Sex.Male)),
+                    friends.GetOdnoselchans().Count(), friends.WhoWorkWithMe().Count()
+                };
+            else
+                return new int[] {
+                    friends.Count(), friends.Count(friends.FilterSex(VkNet.Enums.Sex.Female)), friends.Count(friends.FilterSex(VkNet.Enums.Sex.Male)),
+                };
+        }
+        public async void UpdateStatistic() {
             Classes.Friends friends = new Classes.Friends();
+            var t1 = await Task<int[]>.Factory.StartNew( () => GetCounts(friends));
+            lblCountFrends.Content = "Кількість друзів: " + t1[0];
+            lblCountFrendsFemales.Content = "Кількість друзів слабкої статі: " + t1[1];
+            lblCountFrendsMales.Content = "Кількість друзів сильної статі: " + t1[2];
 
-            lblCountFrends.Content = "Кількість друзів: " + friends.Count();
-            lblCountFrendsFemales.Content = "Кількість друзів слабкої статі: " + friends.Count(friends.FilterSex(VkNet.Enums.Sex.Female));
-            lblCountFrendsMales.Content = "Кількість друзів сильної статі: " + friends.Count(friends.FilterSex(VkNet.Enums.Sex.Male));
+            lblLastAdded.Visibility = Visibility.Visible;
             lblLastAdded.Content = "Останні п'ять нових друзів:\n";
             foreach (var usr in friends.GetRecent(5))
                 lblLastAdded.Content += "\n\t\t" + usr.FirstName + " " + usr.LastName + "\n";
-            lblOdnoselchany.Content = "Кількість односельчан: "+friends.GetOdnoselchans().Count();
-            lblWork.Content = "Кількість друзів які навчаються або працюють з Вами: "+friends.WhoWorkWithMe().Count();
-            lblFriends.Content = string.Join("\n",friends.FilterOld(1998));
 
+            lblOdnoselchany.Visibility = Visibility.Visible;
+            lblOdnoselchany.Content = "Кількість односельчан: " + t1[3];
+
+            lblWork.Visibility = Visibility.Visible;
+            lblWork.Content = "Кількість друзів які навчаються або працюють з Вами: " + t1[4];
+
+            lblFriends.Visibility = Visibility.Visible;
+            lblFriends.Content = friends.FilterOld(1998).ScreenName;
+        }
+        public async void UpdateStatistic(int id)
+        {
+            Classes.Friends friends = new Classes.Friends(id);
+            var t1 = await Task<int[]>.Factory.StartNew(() => GetCounts(friends));
+
+            lblCountFrends.Content = "Кількість друзів: " + t1[0];
+            lblCountFrendsFemales.Content = "Кількість друзів слабкої статі: " + t1[1];
+            lblCountFrendsMales.Content = "Кількість друзів сильної статі: " + t1[2];
+
+            lblLastAdded.Visibility = Visibility.Collapsed;
+            lblOdnoselchany.Visibility = Visibility.Collapsed;
+            lblWork.Visibility = Visibility.Collapsed;
+            lblFriends.Visibility = Visibility.Collapsed;
+            //lblFriends.Content = string.Join("\n", friends.FilterOld(1998));
         }
     }
 }

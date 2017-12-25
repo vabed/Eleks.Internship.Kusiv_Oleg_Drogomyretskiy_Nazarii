@@ -37,6 +37,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.9.9.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.9.9\lib\net45\AngleSharp.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.6.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.6.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
@@ -90,8 +93,8 @@
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="UIAutomationProvider" />
-    <Reference Include="VkNet, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\VkNet.1.29.4\lib\net40\VkNet.dll</HintPath>
+    <Reference Include="VkNet, Version=1.21.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VkNet.1.29.3\lib\net40\VkNet.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
@@ -122,11 +125,11 @@
     <Compile Include="Pages\PageSettings.xaml.cs">
       <DependentUpon>PageSettings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageUserInfo.xaml.cs">
-      <DependentUpon>PageUserInfo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\PageStatistic.xaml.cs">
       <DependentUpon>PageStatistic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageUserInfo.xaml.cs">
+      <DependentUpon>PageUserInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Statistic.xaml.cs">
       <DependentUpon>Statistic.xaml</DependentUpon>
@@ -136,6 +139,9 @@
     </Compile>
     <Compile Include="Windows\WindowLogin.xaml.cs">
       <DependentUpon>WindowLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\WindowToketSignIn.xaml.cs">
+      <DependentUpon>WindowToketSignIn.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -166,9 +172,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\images\arrow_down_32x32.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="Pages\Friends.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,11 +188,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\PageUserInfo.xaml">
+    <Page Include="Pages\PageStatistic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PageStatistic.xaml">
+    <Page Include="Pages\PageUserInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -205,12 +208,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\WindowToketSignIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\vk.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\online.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

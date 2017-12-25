@@ -23,11 +23,12 @@
                 <ColumnDefinition Width="0.7*" />
             </Grid.ColumnDefinitions>
             
-            <Grid Grid.Column="0" Grid.Row="1">
+            <Grid Grid.Column="0" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="35"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                
                 <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -40,8 +41,8 @@
                 <Frame Grid.Row="1" x:Name="frameFriends" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MouseLeave="frameFriends_MouseLeave"/>
             </Grid>
 
-            <Grid Grid.Column="1">
-                <Frame x:Name="frameStatistic" />
+            <Grid Grid.Column="1" >
+                <Frame x:Name="frameStatistic"/>
             </Grid>
         </Grid>
     </Grid>

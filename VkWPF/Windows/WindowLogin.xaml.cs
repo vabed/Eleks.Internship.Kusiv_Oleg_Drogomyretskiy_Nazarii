@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,10 +32,31 @@ namespace VkWPF.Windows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (new Classes.Logining(tbxLogin.Text, tbxPass.Password).GetCurrectVkApi() != null)
+            if (File.Exists("UserInf.txt")) {
+                string[] usrInfo = File.ReadAllLines("UserInf.txt");
+                if (new Classes.Logining(usrInfo[0], tbxPass.Password).GetCurrectVkApi() != null)
+                {
+                    new WindowStart().Show();
+                    this.Hide();
+                }
+                else
+                {
+                    WindowToketSignIn WSignIn = new WindowToketSignIn();
+                    WSignIn.ShowDialog();
+                }
+            }
+            else
             {
-                new WindowStart().Show();
-                this.Hide();
+                if (new Classes.Logining(tbxLogin.Text, tbxPass.Password).GetCurrectVkApi() != null)
+                {
+                    new WindowStart().Show();
+                    this.Hide();
+                }
+                else
+                {
+                    WindowToketSignIn WSignIn = new WindowToketSignIn();
+                    WSignIn.ShowDialog();
+                }
             }
         }
     }
