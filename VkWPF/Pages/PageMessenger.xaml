@@ -26,20 +26,36 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="btnFriends" Grid.Column="0" Content="Список друзів" HorizontalAlignment="Stretch" Click="btnFriends_Click"/>
                 <Button x:Name="btnFriendsOnline" Grid.Column="1" Content="Список друзів онлайн"   HorizontalAlignment="Stretch" Click="btnFriendsOnline_Click"/>
+                <Button x:Name="btnDialogs" Grid.Column="2" Content="Список діалогів" HorizontalAlignment="Stretch" Click="btnDialogs_Click"/>
             </Grid>
-            <Frame Grid.Row="1" x:Name="frameFriends" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+            <Frame Grid.Row="1" x:Name="frameFriends" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" PreviewMouseLeftButtonUp="frameFriends_PreviewMouseLeftButtonUp"/>
         </Grid>
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="50"/>
-            </Grid.RowDefinitions>  
-            <ListBox x:Name="History" Grid.Row="0" Margin="25,25,25,0"  VerticalContentAlignment="Stretch" FontFamily="Palatino Linotype" FontSize="21"/>
-            <TextBox x:Name="SendMessage" Grid.Row="1"    Text="TextBox" VerticalAlignment="Top"   FontFamily="Palatino Linotype" FontSize="16" Margin="25,0,25,0"/>
+            </Grid.RowDefinitions>
+            <ListBox x:Name="txblkHistory" Grid.Row="0" Margin="25,25,25,0"  VerticalContentAlignment="Stretch" FontFamily="Palatino Linotype" FontSize="21">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,5,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="9*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="{Binding Path=image}" />
+                            <TextBlock Margin="15,0,0,0" Grid.Column="1" Text="{Binding Path=Body}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBox x:Name="txblkSendMessage" Grid.Row="1" VerticalAlignment="Top"   FontFamily="Palatino Linotype" FontSize="16" Margin="25,0,25,0" KeyDown="txblkSendMessage_KeyDown"/>
         </Grid>
     </Grid>
 </Page>

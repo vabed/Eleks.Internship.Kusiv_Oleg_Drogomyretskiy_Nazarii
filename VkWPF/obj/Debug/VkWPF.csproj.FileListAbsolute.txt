@@ -216,3 +216,7 @@ D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\AngleSharp.xml
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\obj\Debug\Windows\WindowToketSignIn.g.cs
 D:\Projects C#\Git\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\obj\Debug\Windows\WindowToketSignIn.baml
+C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\AngleSharp.dll
+C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\bin\Debug\AngleSharp.xml
+C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\obj\Debug\Windows\WindowToketSignIn.g.cs
+C:\Users\DaKoshin\Documents\GitHub\Eleks.Internship.Kusiv_Oleg_Drogomyretskiy_Nazarii\VkWPF\obj\Debug\Windows\WindowToketSignIn.baml

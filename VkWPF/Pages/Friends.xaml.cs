@@ -36,6 +36,7 @@ namespace VkWPF.Pages
                 return (lbxFriends.ItemsSource as VkCollection<User>)[lbxFriends.SelectedIndex];
             else return null;
         }
+
         /// <summary>
         /// Заливає дані в lbxFriends.
         /// </summary>
