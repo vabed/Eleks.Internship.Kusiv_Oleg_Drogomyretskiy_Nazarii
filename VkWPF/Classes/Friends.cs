@@ -49,6 +49,7 @@ namespace VkWPF.Classes
             var list = vkCollection.Where(x => (x.FirstName + x.LastName).Contains(name));
             return new VkCollection<User>((ulong)list.Count(), list);
         }
+
         public IEnumerable<User> FilterOld(int year) {
             var temp = FriendsList.Where(x => (x.BirthDate != null && x.BirthDate.Length > 5 ));
             int yearTemp;
@@ -56,10 +57,26 @@ namespace VkWPF.Classes
             foreach(var friend in temp)
             {
                 yearStr = friend.BirthDate.Substring(friend.BirthDate.Length - 4);
-                if (int.TryParse(yearStr, out yearTemp))
+                if (int.TryParse(yearStr, out yearTemp) && yearTemp == year)
                     yield return friend;
             }
-        } 
+        }
+        public List<int?> GetYears()
+        {
+            List<int?> years = new List<int?>();
+            foreach (var user in FriendsList)
+            {
+                string yearStr = (user.BirthDate != null && user.BirthDate.Length > 5) ? user.BirthDate.Substring(user.BirthDate.Length - 4) : null;
+                int yearTemp;
+
+                if (yearStr != null && int.TryParse(yearStr, out yearTemp) && years.Where(x => x == yearTemp).Count() == 0)
+                {
+                    years.Add(yearTemp);
+                }
+            }
+            years.Sort();
+            return years;
+        }
 
         public void LoadFriends(long id){
             FriendsList = _vk.Friends.Get(new VkNet.Model.RequestParams.FriendsGetParams()
@@ -81,19 +98,6 @@ namespace VkWPF.Classes
         public int Count(IEnumerable<User> vkCollection = null) {
             if (vkCollection == null) return FriendsList.Count();
             else return vkCollection.Count();
-        }
-        public List<int> GetYears() {
-            List<int> years = new List<int>();
-            foreach (var user in FriendsList) {
-                string yearStr = user.BirthDate.Substring(user.BirthDate.Length - 4);
-                int yearTemp;
-
-                if (int.TryParse(yearStr, out yearTemp) && years.Where(x=>x == yearTemp).Count() == 0 )
-                {
-                    years.Add(yearTemp);
-                }
-            }
-            return years;
         }
         public IEnumerable<User> GetRecent(int count)
         {

@@ -20,14 +20,23 @@ namespace VkWPF.Pages
     /// </summary>
     public partial class PageFriends : Page
     {
-        Page controlFriends;
+        Pages.Friends controlFriends;
         public PageFriends()
         {
             InitializeComponent();
             controlFriends = new Pages.Friends();
             frameFriends.Content = controlFriends;
 
-            comboYearsFilter.ItemsSource = new Classes.Friends().GetYears();
+            var a = new Classes.Friends().GetYears();
+            comboYearsFilter.ItemsSource = a;
+            a.Insert(0,null);
+        }
+
+        private void comboYearsFilter_DropDownClosed(object sender, EventArgs e)
+        {
+            if (comboYearsFilter.SelectedValue != null)
+                controlFriends.FilterOld(int.Parse(comboYearsFilter.SelectedValue.ToString()));
+            else controlFriends.UpdateFriendsListFrom();
         }
     }
 }

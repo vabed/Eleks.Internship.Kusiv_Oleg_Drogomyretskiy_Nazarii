@@ -6,7 +6,8 @@
         xmlns:cm="clr-namespace:System.ComponentModel;assembly=System"
         xmlns:local="clr-namespace:VkWPF.Windows"
         mc:Ignorable="d"
-        Title="WindowLogin" Height="400" Width="512" WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False" AllowsTransparency="True" WindowStyle="None">
+        Title="WindowLogin" Height="400" Width="512" 
+        WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False" AllowsTransparency="True" WindowStyle="None" KeyDown="Window_KeyDown">
 
     <!---->
 
@@ -45,7 +46,7 @@
                      />
             <PasswordBox x:Name="tbxPass" Grid.Column="1" Grid.Row="2" 
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"
-                    FontSize="16" FontStretch="Expanded" PasswordChar="*" Password="ok2504762936OK" FontFamily="Palatino Linotype" 
+                    FontSize="16" FontStretch="Expanded" PasswordChar="*" FontFamily="Palatino Linotype" 
                     />
             <Button Content="Ввійти" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Width="140" Height="33.667" FontWeight="Normal" FontSize="16" Click="Button_Click_1" FontFamily="Palatino Linotype" HorizontalAlignment="Center"/>
             <Button Content="Вихід" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Width="140" Height="33.667" FontWeight="Normal" FontSize="16" Click="Button_Click" FontFamily="Palatino Linotype" HorizontalAlignment="Center"/>

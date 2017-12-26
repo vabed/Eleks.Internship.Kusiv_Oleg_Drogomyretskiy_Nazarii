@@ -20,8 +20,12 @@ namespace VkWPF.Windows
         public WindowLogin()
         {
             InitializeComponent();
-            string login = File.ReadAllText("UserInf.txt");
-            tbxLogin.Text = login;
+            try
+            {
+                string login = File.ReadAllText("UserInf.txt");
+                tbxLogin.Text = login;
+            }
+            catch { }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -31,6 +35,14 @@ namespace VkWPF.Windows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            Logining();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) Logining();
+        }
+        void Logining() {
             if (new Classes.Logining(tbxLogin.Text, tbxPass.Password).GetCurrectVkApi() != null)
             {
                 new WindowStart().Show();

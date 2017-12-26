@@ -21,8 +21,18 @@ namespace VkWPF.Pages
     public partial class Friends : Page
     {
         VkApi _vk;
-        public VkCollection<User> _friendsList;
-        public VkCollection<User> FriendsList {
+
+        public Friends()
+        {
+            InitializeComponent();
+            imgs = new List<Image>();
+            _vk = Classes.Logining.Vk;
+
+            UpdateFriendsListFrom(bufered: true);
+        }
+
+        private VkCollection<User> _friendsList;
+        private VkCollection<User> FriendsList {
             get => _friendsList;
             set {
                 _friendsList = value;
@@ -53,7 +63,10 @@ namespace VkWPF.Pages
                     FriendsList = new Classes.Friends(userId.Value).FilterName(new Classes.Friends(userId.Value).GetFriendsListOnline(), searchedName);
             }
         }
-
+        public void FilterOld(int year) {
+            var temp = new Classes.Friends().FilterOld(year);
+            FriendsList = new VkCollection<User> ((ulong)temp.Count(), temp);
+        }
         /// <summary>
         /// Заливає дані в lbxFriends.
         /// </summary>
@@ -111,17 +124,6 @@ namespace VkWPF.Pages
             return imgs;
         }
 
-        public Friends()
-        {
-            InitializeComponent();
-            imgs = new List<Image>();
-            _vk = Classes.Logining.Vk;
-
-            UpdateFriendsListFrom(bufered: true);
-        }
-        ~Friends() {
-            imgs = null;
-        }
         
     }
 }

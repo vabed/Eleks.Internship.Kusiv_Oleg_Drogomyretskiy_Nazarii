@@ -121,7 +121,6 @@ namespace VkWPF.Pages
                 imgs = logic.GetImages();
                 Messages = logic.GetHistoryChat().Messages.ToList();
             }
-            else txblkSendMessage.Text = "Ніц нема!"; 
         }
 
         private void tbxSearch_KeyDown(object sender, KeyEventArgs e)

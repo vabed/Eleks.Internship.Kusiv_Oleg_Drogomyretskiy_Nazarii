@@ -46,10 +46,7 @@ namespace VkWPF.Classes
                     );
                 }
                 catch (VkNet.Exception.VkApiAuthorizationException) { MessageBox.Show("Неправельно введені логін або пароль!"); Vk = null; }
-                catch (VkNet.Exception.VkApiException) {
-                    MessageBox.Show("Включіть VPN!");
-                    
-                    Vk = null; }
+                catch (VkNet.Exception.VkApiException) {MessageBox.Show("Неможливо з'єднатись з сервером!");Vk = null; }
             }
             return Vk;
         }

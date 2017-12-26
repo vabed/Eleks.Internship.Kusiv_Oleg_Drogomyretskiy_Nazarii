@@ -14,6 +14,6 @@
             <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
         <Frame Grid.Column="0" x:Name="frameFriends" />
-        <ComboBox x:Name="comboYearsFilter" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="10,0,0,0"/>
+        <ComboBox x:Name="comboYearsFilter" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="10,0,0,0" DropDownClosed="comboYearsFilter_DropDownClosed"/>
     </Grid>
 </Page>
