@@ -36,6 +36,23 @@ namespace VkWPF.Pages
                 return (lbxFriends.ItemsSource as VkCollection<User>)[lbxFriends.SelectedIndex];
             else return null;
         }
+        public void FilterName(string searchedName, long? userId=null,bool online = false) {
+            var logic = new Classes.Friends();
+            if (!online)
+            {
+                if (userId == null)
+                    FriendsList = new Classes.Friends().FilterName(searchedName);
+                else
+                    FriendsList = new Classes.Friends(userId.Value).FilterName(searchedName); ;
+            }
+            else
+            {
+                if (userId == null)
+                    FriendsList = new Classes.Friends().FilterName(logic.GetFriendsListOnline(),searchedName);
+                else
+                    FriendsList = new Classes.Friends(userId.Value).FilterName(new Classes.Friends(userId.Value).GetFriendsListOnline(), searchedName);
+            }
+        }
 
         /// <summary>
         /// Заливає дані в lbxFriends.
@@ -43,21 +60,21 @@ namespace VkWPF.Pages
         /// <param name="friendsIn">Якщо не вказувати то буде обрано друзів залогіненого користувача.</param>
         /// <param name="bufered">Вказує чи потрібно буферити дані в пам'яті чи підгружати в процесі підгрузки.</param>
         /// <param name="online">Вказує чи обрати тільки користувачів які онлайн.</param>
-        public void UpdateFriendsListFrom(VkCollection<User> friendsIn = null, bool bufered=true, bool online = false)
+        public void UpdateFriendsListFrom(long?  userId = null, bool bufered=true, bool online = false)
         {
             if (!online)
             {
-                if (friendsIn == null)
+                if (userId == null)
                     FriendsList = new Classes.Friends().FriendsList;
                 else
-                    FriendsList = friendsIn;
+                    FriendsList = new Classes.Friends(userId.Value).FriendsList;
             }
             else
             {
-                if (friendsIn == null)
+                if (userId == null)
                     FriendsList = new Classes.Friends().GetFriendsListOnline();
                 else
-                    FriendsList = new Classes.Friends().GetFriendsListOnline(friendsIn);
+                    FriendsList = new Classes.Friends(userId.Value).GetFriendsListOnline();
             }
 
             if(bufered && FriendsList.Count>=12)
@@ -100,7 +117,7 @@ namespace VkWPF.Pages
             imgs = new List<Image>();
             _vk = Classes.Logining.Vk;
 
-            UpdateFriendsListFrom();
+            UpdateFriendsListFrom(bufered: true);
         }
         ~Friends() {
             imgs = null;

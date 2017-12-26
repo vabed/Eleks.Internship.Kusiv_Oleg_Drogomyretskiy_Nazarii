@@ -80,7 +80,7 @@ namespace VkWPF.Pages
             lblWork.Content = "Кількість друзів які навчаються або працюють з Вами: " + t1[4];
 
             lblFriends.Visibility = Visibility.Visible;
-            lblFriends.Content = friends.FilterOld(1998).ScreenName;
+            lblFriends.Content = friends.FilterOld(1998).Select(x=>x.FirstName);
         }
         public async void UpdateStatistic(int id)
         {

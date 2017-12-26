@@ -20,19 +20,19 @@
         <Grid Grid.Column="0" Grid.Row="1" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="btnFriends" Grid.Column="0" Content="Список друзів" HorizontalAlignment="Stretch" Click="btnFriends_Click"/>
                 <Button x:Name="btnFriendsOnline" Grid.Column="1" Content="Список друзів онлайн"   HorizontalAlignment="Stretch" Click="btnFriendsOnline_Click"/>
-                <Button x:Name="btnDialogs" Grid.Column="2" Content="Список діалогів" HorizontalAlignment="Stretch" Click="btnDialogs_Click"/>
             </Grid>
-            <Frame Grid.Row="1" x:Name="frameFriends" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" PreviewMouseLeftButtonUp="frameFriends_PreviewMouseLeftButtonUp"/>
+            <TextBox x:Name="tbxSearch" Grid.Row="1" KeyDown="tbxSearch_KeyDown"/>
+            <Frame Grid.Row="2" x:Name="frameFriends" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" PreviewMouseLeftButtonUp="frameFriends_PreviewMouseLeftButtonUp"/>
         </Grid>
 
         <Grid Grid.Column="1">

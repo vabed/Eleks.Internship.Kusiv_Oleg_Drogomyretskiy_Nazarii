@@ -30,23 +30,23 @@ namespace VkWPF.Pages
                 try
                 {
                     statisticCotrol.UpdateStatistic(int.Parse(tbxId.Text));
-                    friendsControl.UpdateFriendsListFrom(new Classes.Friends(int.Parse(tbxId.Text)).FriendsList);
+                    friendsControl.UpdateFriendsListFrom(long.Parse(tbxId.Text));
                 }
                 catch
                 {
                     statisticCotrol.UpdateStatistic();
-                    friendsControl.UpdateFriendsListFrom(new Classes.Friends((int)_vk.UserId).FriendsList);
+                    friendsControl.UpdateFriendsListFrom();
                 }
             else
                 try
                 {
                     statisticCotrol.UpdateStatistic(int.Parse(tbxId.Text));
-                    friendsControl.UpdateFriendsListFrom(new Classes.Friends(int.Parse(tbxId.Text)).FriendsList, false, true);
+                    friendsControl.UpdateFriendsListFrom(long.Parse(tbxId.Text), false, true);
                 }
                 catch
                 {
                     statisticCotrol.UpdateStatistic();
-                    friendsControl.UpdateFriendsListFrom(new Classes.Friends((int)_vk.UserId).FriendsList,false,true);
+                    friendsControl.UpdateFriendsListFrom(null,false,true);
                 }
         }
 #endregion

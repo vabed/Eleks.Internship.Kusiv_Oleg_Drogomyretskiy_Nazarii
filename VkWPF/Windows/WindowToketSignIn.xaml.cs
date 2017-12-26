@@ -25,7 +25,8 @@ namespace VkWPF.Windows
         {
             InitializeComponent();
             GetToken.LoadCompleted += GetToken_DocumentCompleted;
-            GetToken.Navigate("https://oauth.vk.com/authorize?client_id="+Classes.Logining.AppID+"&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.52");
+            //GetToken.Navigate("https://oauth.vk.com/authorize?client_id="+Classes.Logining.AppID+"&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.52");
+            GetToken.Navigate("http://vk.com");
         }
 
         private void GetToken_DocumentCompleted(object sender, NavigationEventArgs e)

@@ -13,15 +13,26 @@ namespace VkWPF.Classes
     class Friends
     {
         public VkApi _vk;
+        long userId;
+#region Constructors
+        public Friends()
+        {
+            _vk = Logining.Vk;
+            userId = _vk.UserId.Value;
+            LoadFriends(userId);
+        }
+        public Friends(long userId)
+        {
+            _vk = Logining.Vk;
+            this.userId = userId;
+            LoadFriends(this.userId);
+        }
+#endregion
 
         public VkCollection<User> FriendsList{ get; private set;}
+
         public VkCollection<User> GetFriendsListOnline() {
             var temp = FriendsList.Where(x => x.Online == true);
-            return new VkCollection<User>((ulong)temp.Count(), temp);
-        }
-        public VkCollection<User> GetFriendsListOnline(VkCollection<User> vkCollection)
-        {
-            var temp = vkCollection.Where(x => x.Online == true);
             return new VkCollection<User>((ulong)temp.Count(), temp);
         }
         public VkCollection<User> FilterSex(VkNet.Enums.Sex sex)
@@ -29,13 +40,28 @@ namespace VkWPF.Classes
             var list = FriendsList.Where(x => x.Sex == sex);
             return new VkCollection<User>((ulong)list.Count(), list);
         }
-        public User FilterOld(int year) {
-            var temp = FriendsList.Where(x => (x.BirthDate != null && x.BirthDate.Length > 5 )).First();
-            var a = temp.BirthDate.Substring(temp.BirthDate.Length-4);
-            return temp;
+        public VkCollection<User> FilterName(string name) {
+            var list = FriendsList.Where(x => (x.FirstName+x.LastName).Contains(name));
+            return new VkCollection<User>((ulong)list.Count(), list);
+        }
+        public VkCollection<User> FilterName(VkCollection<User> vkCollection, string name)
+        {
+            var list = vkCollection.Where(x => (x.FirstName + x.LastName).Contains(name));
+            return new VkCollection<User>((ulong)list.Count(), list);
+        }
+        public IEnumerable<User> FilterOld(int year) {
+            var temp = FriendsList.Where(x => (x.BirthDate != null && x.BirthDate.Length > 5 ));
+            int yearTemp;
+            string yearStr;
+            foreach(var friend in temp)
+            {
+                yearStr = friend.BirthDate.Substring(friend.BirthDate.Length - 4);
+                if (int.TryParse(yearStr, out yearTemp))
+                    yield return friend;
+            }
         } 
 
-        public void UpdateFriends(long id){
+        public void LoadFriends(long id){
             FriendsList = _vk.Friends.Get(new VkNet.Model.RequestParams.FriendsGetParams()
                 {
                     UserId = id,
@@ -45,15 +71,6 @@ namespace VkWPF.Classes
                              ProfileFields.Universities | ProfileFields.Schools | ProfileFields.Career
                 }
             );
-        }
-        public Friends() {
-            _vk = Logining.Vk;
-            UpdateFriends(_vk.UserId.Value);
-        }
-        public Friends(int userId)
-        {
-            _vk = Logining.Vk;
-            UpdateFriends(userId);
         }
 
         /// <summary>
@@ -65,13 +82,24 @@ namespace VkWPF.Classes
             if (vkCollection == null) return FriendsList.Count();
             else return vkCollection.Count();
         }
+        public List<int> GetYears() {
+            List<int> years = new List<int>();
+            foreach (var user in FriendsList) {
+                string yearStr = user.BirthDate.Substring(user.BirthDate.Length - 4);
+                int yearTemp;
 
+                if (int.TryParse(yearStr, out yearTemp) && years.Where(x=>x == yearTemp).Count() == 0 )
+                {
+                    years.Add(yearTemp);
+                }
+            }
+            return years;
+        }
         public IEnumerable<User> GetRecent(int count)
         {
             var ids = _vk.Friends.GetRecent(5);
             return _vk.Users.Get(ids);
         }
-
         public IEnumerable<User> GetOdnoselchans()//ДН XD)
         {
             var moieselo = (_vk.Account.GetProfileInfo().City !=null) ? _vk.Account.GetProfileInfo().City.Title : null ;

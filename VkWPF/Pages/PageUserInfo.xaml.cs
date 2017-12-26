@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VkNet;
 
 namespace VkWPF.Pages
 {
@@ -20,9 +21,14 @@ namespace VkWPF.Pages
     /// </summary>
     public partial class PageUserInfo : Page
     {
+        VkApi _vk;
         public PageUserInfo()
         {
             InitializeComponent();
+            _vk = Classes.Logining.Vk;
+            txtblcFirstName.Text = _vk.Account.GetProfileInfo().FirstName;
+            txtblcLastName.Text = _vk.Account.GetProfileInfo().LastName;
+
         }
     }
 }

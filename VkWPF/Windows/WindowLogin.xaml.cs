@@ -20,10 +20,9 @@ namespace VkWPF.Windows
         public WindowLogin()
         {
             InitializeComponent();
+            string login = File.ReadAllText("UserInf.txt");
+            tbxLogin.Text = login;
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {}
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -32,31 +31,11 @@ namespace VkWPF.Windows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (File.Exists("UserInf.txt")) {
-                string[] usrInfo = File.ReadAllLines("UserInf.txt");
-                if (new Classes.Logining(usrInfo[0], tbxPass.Password).GetCurrectVkApi() != null)
-                {
-                    new WindowStart().Show();
-                    this.Hide();
-                }
-                else
-                {
-                    WindowToketSignIn WSignIn = new WindowToketSignIn();
-                    WSignIn.ShowDialog();
-                }
-            }
-            else
+            if (new Classes.Logining(tbxLogin.Text, tbxPass.Password).GetCurrectVkApi() != null)
             {
-                if (new Classes.Logining(tbxLogin.Text, tbxPass.Password).GetCurrectVkApi() != null)
-                {
-                    new WindowStart().Show();
-                    this.Hide();
-                }
-                else
-                {
-                    WindowToketSignIn WSignIn = new WindowToketSignIn();
-                    WSignIn.ShowDialog();
-                }
+                new WindowStart().Show();
+                this.Hide();
+                File.WriteAllText("UserInf.txt", tbxLogin.Text);
             }
         }
     }

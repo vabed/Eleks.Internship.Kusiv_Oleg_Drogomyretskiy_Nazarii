@@ -9,6 +9,8 @@
       Title="PageUserInfo">
 
     <Grid>
-        
+        <TextBlock x:Name="txtblcFirstName" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" Foreground="Snow"/>
+        <TextBlock x:Name="txtblcLastName" TextWrapping="Wrap" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="20" Foreground="Snow" />
+
     </Grid>
 </Page>

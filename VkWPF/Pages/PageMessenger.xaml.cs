@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using VkNet;
+using VkNet.Enums.Filters;
+using VkNet.Model;
+using VkNet.Model.RequestParams;
 
 namespace VkWPF.Pages
 {
@@ -25,8 +29,40 @@ namespace VkWPF.Pages
         VkApi _vk;
         Classes.Messenger logic;
         BitmapImage[] imgs;
+        List<Message> _messages;
+        List<Message> Messages {
+            get => _messages;
+            set {
+                if (value != null && value.Count() != 0)
+                {
+                    _messages = value;
 
-        //UserMethods
+                    txblkHistory.Items.Clear();
+                    if (imgs != null)
+                        foreach (var temp in Messages.Select(x => new { x.Body, image = (x.FromId == _vk.UserId) ? imgs[0] : imgs[1] }).Reverse())
+                        {
+                            txblkHistory.Items.Add(temp);
+                        }
+                    else
+                        foreach (var temp in Messages.Select(x => new { x.Body, image = _vk.Users.Get(x.UserId.Value, ProfileFields.Photo50).Photo50 }).Reverse())
+                        {
+                            txblkHistory.Items.Add(temp);
+                        }
+                }
+                SubscribeOnMessages();
+            }
+        }
+
+        #region Constructors
+        public PageMessenger()
+        {
+            InitializeComponent();
+            friendsControl = new Friends();
+            frameFriends.Content = friendsControl;
+            _vk = Classes.Logining.Vk;
+        }
+        #endregion
+        #region UserMethods
         private void UpdateFriendsList(int id)
         {
             var friendsList = new Classes.Friends(id).FriendsList;
@@ -48,23 +84,22 @@ namespace VkWPF.Pages
             else
                 UpdateFriendsListOnline((int)_vk.UserId);
         }
-
-        public PageMessenger()
-        {
-            InitializeComponent();
-            friendsControl = new Friends();
-            frameFriends.Content = friendsControl;
-            _vk = Classes.Logining.Vk;
+        private async void SubscribeOnMessages() {
+            var t = await Task<MessagesGetObject>.Factory.StartNew(() => logic.GetHistoryChat());
+            Messages = t.Messages.ToList();
         }
+        #endregion
 
         private void btnFriends_Click(object sender, RoutedEventArgs e)
         {
             UpdateFriends(false);
+            if (tbxSearch.Text.Length != 0) friendsControl.FilterName(tbxSearch.Text);
         }
 
         private void btnFriendsOnline_Click(object sender, RoutedEventArgs e)
         {
             UpdateFriends(true);
+            if(tbxSearch.Text.Length != 0) friendsControl.FilterName(tbxSearch.Text, online: true);
         }
 
         private void txblkSendMessage_KeyDown(object sender, KeyEventArgs e)
@@ -79,25 +114,19 @@ namespace VkWPF.Pages
 
         private void frameFriends_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            txblkHistory.Items.Clear();
-            VkNet.Model.User selected = friendsControl.GetSelected();
-
+            User selected = friendsControl.GetSelected();
             if (selected != null)
             {
                 logic = new Classes.Messenger(selected);
                 imgs = logic.GetImages();
-
-                foreach ( var temp in logic.GetHistoryChat().Messages.Select(x => new { x.Body, image = (x.FromId == _vk.UserId)?imgs[0]:imgs[1] }).Reverse())
-                {
-                    txblkHistory.Items.Add(temp);
-                }
+                Messages = logic.GetHistoryChat().Messages.ToList();
             }
-            else txblkSendMessage.Text = "Ніхуя нема"; 
+            else txblkSendMessage.Text = "Ніц нема!"; 
         }
 
-        private void btnDialogs_Click(object sender, RoutedEventArgs e)
+        private void tbxSearch_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.Key == Key.Enter) friendsControl.FilterName(tbxSearch.Text);
         }
     }
 }

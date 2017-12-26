@@ -26,6 +26,8 @@ namespace VkWPF.Pages
             InitializeComponent();
             controlFriends = new Pages.Friends();
             frameFriends.Content = controlFriends;
+
+            comboYearsFilter.ItemsSource = new Classes.Friends().GetYears();
         }
     }
 }
