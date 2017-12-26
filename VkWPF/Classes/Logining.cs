@@ -66,5 +66,30 @@ namespace VkWPF.Classes
             }
             return Vk;
         }
+        public async Task<VkApi> SignInAsync(string login, string pass) {
+            scope = Settings.All;
+            Login = login;
+            Pass = pass;
+
+            if (Vk == null)
+            {
+                try
+                {
+                    Vk = new VkApi();
+                    await Vk.AuthorizeAsync(new ApiAuthParams
+                    {
+                        ApplicationId = AppID,
+                        Login = login,
+                        Password = pass,
+                        Settings = scope
+                    }
+                    );
+                }
+                catch (VkNet.Exception.VkApiAuthorizationException) { MessageBox.Show("Неправельно введені логін або пароль!"); Vk = null; }
+                catch (VkNet.Exception.VkApiException) { MessageBox.Show("Неможливо з'єднатись з сервером!"); Vk = null; }
+            }
+            return Vk;
+        }
+        
     }
 }

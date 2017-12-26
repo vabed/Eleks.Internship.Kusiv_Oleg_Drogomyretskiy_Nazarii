@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VkNet;
+using VkNet.Enums.Filters;
 
 namespace VkWPF.Windows
 {
@@ -35,14 +37,14 @@ namespace VkWPF.Windows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Logining();
+            LoginingAsync();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter) Logining();
+            if (e.Key == Key.Enter) LoginingAsync();
         }
-        void Logining() {
+        void  Logining() {
             if (new Classes.Logining(tbxLogin.Text, tbxPass.Password).GetCurrectVkApi() != null)
             {
                 new WindowStart().Show();
@@ -50,5 +52,18 @@ namespace VkWPF.Windows
                 File.WriteAllText("UserInf.txt", tbxLogin.Text);
             }
         }
+        async void LoginingAsync() {
+            VkApi t = await new Classes.Logining().SignInAsync(tbxLogin.Text, tbxPass.Password);
+            
+            if (t != null)
+            {
+                txt.Text += " " + t.UserId;
+                new WindowStart().Show();
+                this.Hide();
+                File.WriteAllText("UserInf.txt", tbxLogin.Text);
+            }
+
+        }
+
     }
 }

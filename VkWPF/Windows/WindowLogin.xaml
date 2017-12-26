@@ -60,6 +60,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
+            <TextBlock x:Name="txt" HorizontalAlignment="Left" Margin="32,33.8,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
     </Grid>
     </Border>
 </Window>
