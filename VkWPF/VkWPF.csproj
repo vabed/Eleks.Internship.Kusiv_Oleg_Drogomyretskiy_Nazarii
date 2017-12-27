@@ -122,9 +122,6 @@
     <Compile Include="Pages\PageMessenger.xaml.cs">
       <DependentUpon>PageMessenger.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PageSettings.xaml.cs">
-      <DependentUpon>PageSettings.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\PageStatistic.xaml.cs">
       <DependentUpon>PageStatistic.xaml</DependentUpon>
     </Compile>
@@ -139,9 +136,6 @@
     </Compile>
     <Compile Include="Windows\WindowLogin.xaml.cs">
       <DependentUpon>WindowLogin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\WindowToketSignIn.xaml.cs">
-      <DependentUpon>WindowToketSignIn.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -184,10 +178,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PageSettings.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Pages\PageStatistic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,10 +195,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\WindowLogin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\WindowToketSignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

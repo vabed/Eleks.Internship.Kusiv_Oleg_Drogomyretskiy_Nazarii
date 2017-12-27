@@ -31,8 +31,13 @@ namespace VkWPF.Windows
             }
             catch { }
             finally {
-                if(usrinf.Count()==2)
+                if (usrinf.Count() == 2)
+                {
+                    
                     LoginingAsync();
+                    MessageBox.Show("Іде вхід у ВК, зачекайте...");
+                    this.Hide();
+                }
             }
         }
 
@@ -50,12 +55,11 @@ namespace VkWPF.Windows
         {
             if (e.Key == Key.Enter) LoginingAsync();
         }
-        void  Logining() {
+        void  Relogin() {
             if (new Classes.Logining(tbxLogin.Text, tbxPass.Password).GetCurrectVkApi() != null)
             {
                 new WindowStart().Show();
                 this.Hide();
-                File.WriteAllText("UserInf.txt", tbxLogin.Text);
             }
         }
         async void LoginingAsync() {

@@ -1,22 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using VkNet;
 using VkNet.Enums.Filters;
 using VkNet.Model;
-using VkNet.Model.RequestParams;
 
 namespace VkWPF.Pages
 {
@@ -85,7 +76,7 @@ namespace VkWPF.Pages
                 UpdateFriendsListOnline((int)_vk.UserId);
         }
         private async void SubscribeOnMessages() {
-            var t = await Task<MessagesGetObject>.Factory.StartNew(() => logic.GetHistoryChat());
+            var t = await Task<MessagesGetObject>.Factory.StartNew(() => logic.GetMessages());
             Messages = t.Messages.ToList();
         }
         #endregion
@@ -108,7 +99,7 @@ namespace VkWPF.Pages
             {
                 logic.SendMessage(txblkSendMessage.Text);
                 txblkSendMessage.Text = null;
-                txblkHistory.Items.Insert(txblkHistory.Items.Count, logic.GetHistoryChat(1).Messages.Select(x => new { x.Body, image = imgs[0] }));
+                txblkHistory.Items.Insert(txblkHistory.Items.Count, logic.GetMessages(1).Messages.Select(x => new { x.Body, image = imgs[0] }));
             }
         }
 
@@ -119,7 +110,8 @@ namespace VkWPF.Pages
             {
                 logic = new Classes.Messenger(selected);
                 imgs = logic.GetImages();
-                Messages = logic.GetHistoryChat().Messages.ToList();
+                Messages = logic.GetMessages().Messages.ToList();
+                var dialogs = logic.GetDialogs();
             }
         }
 
