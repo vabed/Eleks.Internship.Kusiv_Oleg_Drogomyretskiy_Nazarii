@@ -21,18 +21,24 @@ namespace VkWPF.Windows
     {
         public WindowLogin()
         {
+
             InitializeComponent();
+            string[] usrinf = File.ReadAllLines("UserInf.txt");
             try
             {
-                string login = File.ReadAllText("UserInf.txt");
-                tbxLogin.Text = login;
+                tbxLogin.Text = usrinf[0];
+                tbxPass.Password = usrinf[1];
             }
             catch { }
+            finally {
+                if(usrinf.Count()==2)
+                    LoginingAsync();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Environment.Exit(0);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -57,10 +63,9 @@ namespace VkWPF.Windows
             
             if (t != null)
             {
-                txt.Text += " " + t.UserId;
                 new WindowStart().Show();
                 this.Hide();
-                File.WriteAllText("UserInf.txt", tbxLogin.Text);
+                File.WriteAllText("UserInf.txt", tbxLogin.Text+"\n"+tbxPass.Password);
             }
 
         }

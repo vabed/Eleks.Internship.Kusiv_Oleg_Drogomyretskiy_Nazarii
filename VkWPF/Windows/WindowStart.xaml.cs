@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using VkNet;
+
 
 namespace VkWPF.Windows
 {
@@ -33,10 +35,6 @@ namespace VkWPF.Windows
             frameMain.Content = new Pages.PageSettings(); 
         }
 
-        private void StartWindow_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-        }
-
         private void StartWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Environment.Exit(0);
@@ -59,6 +57,8 @@ namespace VkWPF.Windows
 
         private void btnChangeUser_Click(object sender, RoutedEventArgs e)
         {
+            string path = "UserInf.txt";
+            File.WriteAllText(path, File.ReadAllLines(path)[0]);
             Classes.Logining.SignOut();
             new Windows.WindowLogin().Show();
             this.Hide();
