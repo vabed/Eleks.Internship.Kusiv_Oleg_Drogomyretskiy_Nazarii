@@ -63,6 +63,7 @@ namespace VkWPF.Pages
         }
         #endregion
         #region UserMethods
+        // bad realization, a lot of duplicate code
         private void UpdateFriendsList(int id)
         {
             var friendsList = new Classes.Friends(id).FriendsList;

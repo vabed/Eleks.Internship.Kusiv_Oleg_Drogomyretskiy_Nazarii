@@ -24,12 +24,12 @@ namespace VkWPF.Pages
         public PageFriends()
         {
             InitializeComponent();
-            controlFriends = new Pages.Friends();
+            controlFriends = new Pages.Friends(); // simplify the name
             frameFriends.Content = controlFriends;
 
-            var a = new Classes.Friends().GetYears();
+            var a = new Classes.Friends().GetYears(); // really not the best choice for variable name
             comboYearsFilter.ItemsSource = a;
-            a.Insert(0,null);
+            a.Insert(0,null); // why you do it?
         }
 
         private void comboYearsFilter_DropDownClosed(object sender, EventArgs e)

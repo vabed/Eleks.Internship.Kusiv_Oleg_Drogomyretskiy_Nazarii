@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System; // delete unuse usings
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +8,14 @@ using VkNet;
 using VkNet.Enums.Filters;
 using VkNet.Model;
 using VkNet.Utils;
-namespace VkWPF.Classes
+namespace VkWPF.Classes // the name of namespace must be informative, this one shows nothing
 {
     class Friends
     {
-        public VkApi _vk;
+        public VkApi _vk; // if you don't use it outside, why it is public 
         long userId;
 #region Constructors
-        public Friends()
+        public Friends()// you can make from this constructors one constructor
         {
             _vk = Logining.Vk;
             userId = _vk.UserId.Value;
@@ -29,8 +29,8 @@ namespace VkWPF.Classes
         }
 #endregion
 
-        public VkCollection<User> FriendsList{ get; private set;}
-
+        public VkCollection<User> FriendsList{ get; private set;} 
+        // the difference in this methods only in filter condition try to use Func<bool> for it as parameter
         public VkCollection<User> GetFriendsListOnline() {
             var temp = FriendsList.Where(x => x.Online == true);
             return new VkCollection<User>((ulong)temp.Count(), temp);
@@ -63,6 +63,7 @@ namespace VkWPF.Classes
         }
         public List<int?> GetYears()
         {
+            // do you try to do the same with LINQ?
             List<int?> years = new List<int?>();
             foreach (var user in FriendsList)
             {
@@ -78,7 +79,7 @@ namespace VkWPF.Classes
             return years;
         }
 
-        public void LoadFriends(long id){
+        public void LoadFriends(long id){ // why you make it public? It will be better choice to write this code directly in constructor
             FriendsList = _vk.Friends.Get(new VkNet.Model.RequestParams.FriendsGetParams()
                 {
                     UserId = id,
@@ -89,7 +90,7 @@ namespace VkWPF.Classes
                 }
             );
         }
-
+        // really useless method you can just return FriendsList.Count() and in other cases use count from LINQ
         /// <summary>
         /// Кількість елементів
         /// </summary>
@@ -107,7 +108,7 @@ namespace VkWPF.Classes
         public IEnumerable<User> GetOdnoselchans()//ДН XD)
         {
             var moieselo = (_vk.Account.GetProfileInfo().City !=null) ? _vk.Account.GetProfileInfo().City.Title : null ;
-            foreach (var friend in FriendsList)
+            foreach (var friend in FriendsList) // you can do the same with LINQ
             {
                 if(friend.City !=null && friend.City.Title ==moieselo)
                 yield return friend;
@@ -118,7 +119,7 @@ namespace VkWPF.Classes
         /// Метод виконує пошук друзів хто навчається або працює з залогіненим користувачем.
         /// </summary>
         /// <returns>Може бути null.</returns>
-        public IEnumerable<User> WhoWorkWithMe()
+        public IEnumerable<User> WhoWorkWithMe() // here is good case to use Chain of responcibility pattern
         {
             var user = _vk.Users.Get(_vk.UserId.Value, ProfileFields.Schools | ProfileFields.Universities|ProfileFields.Career);
             var job = (user.Career.Count()!=0) ? user.Career.Last():null;

@@ -29,7 +29,7 @@ namespace VkWPF.Windows
                 tbxLogin.Text = usrinf[0];
                 tbxPass.Password = usrinf[1];
             }
-            catch { }
+            catch { } // if you do nothing in catch you can just delete it
             finally {
                 if(usrinf.Count()==2)
                     LoginingAsync();
@@ -65,7 +65,7 @@ namespace VkWPF.Windows
             {
                 new WindowStart().Show();
                 this.Hide();
-                File.WriteAllText("UserInf.txt", tbxLogin.Text+"\n"+tbxPass.Password);
+                File.WriteAllText("UserInf.txt", tbxLogin.Text+"\n"+tbxPass.Password);// for real projects it is not secure to store password like this, you need to ecrypt it
             }
 
         }

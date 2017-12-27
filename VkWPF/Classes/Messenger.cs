@@ -22,6 +22,7 @@ namespace VkWPF.Classes
             this.usr = usr;
 
         }
+        // if this methods are unused delete them
         public void SendMessage() { }
         public void GetMessages() { }
 
@@ -44,7 +45,7 @@ namespace VkWPF.Classes
         }
         public MessagesGetObject GetHistoryChat(int count = 20)
         {
-            Thread.Sleep(500);
+            Thread.Sleep(500); // why you need sleep here, it is not good choice
             if (count != 0)
                 return _vk.Messages.GetHistory(new MessagesGetHistoryParams() { Count = count, UserId = usr.Id });
             else return null;
@@ -52,7 +53,7 @@ namespace VkWPF.Classes
 
         public int CheckMesages() {
             var newMessages = _vk.Messages.GetDialogs(new MessagesDialogsGetParams() { Count = 20 }).Messages.Where(x => x.UserId == usr.Id);
-            if (newMessages.Count() > 0)
+            if (newMessages.Count() > 0) // why you need if here you can just return count
                 return newMessages.Count();
             else return 0;
         }

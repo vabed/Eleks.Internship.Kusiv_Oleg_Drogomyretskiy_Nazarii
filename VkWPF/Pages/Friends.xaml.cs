@@ -51,7 +51,7 @@ namespace VkWPF.Pages
             if (!online)
             {
                 if (userId == null)
-                    FriendsList = new Classes.Friends().FilterName(searchedName);
+                    FriendsList = new Classes.Friends().FilterName(searchedName); // why you always create new Friends object and don't use logic
                 else
                     FriendsList = new Classes.Friends(userId.Value).FilterName(searchedName); ;
             }
@@ -63,7 +63,7 @@ namespace VkWPF.Pages
                     FriendsList = new Classes.Friends(userId.Value).FilterName(new Classes.Friends(userId.Value).GetFriendsListOnline(), searchedName);
             }
         }
-        public void FilterOld(int year) {
+        public void FilterOld(int year) { // try to merge this method with the same one in Friends
             var temp = new Classes.Friends().FilterOld(year);
             FriendsList = new VkCollection<User> ((ulong)temp.Count(), temp);
         }
@@ -106,15 +106,16 @@ namespace VkWPF.Pages
                 var task2 = Task.Run(() => getBuferedPart(FriendsList.Count / 3, FriendsList.Count / 3 * 2));
 
                 var task3 = Task.Run(() => getBuferedPart(FriendsList.Count / 3 *2, FriendsList.Count));
-                Task.WaitAll(task1,task2,task3);
+                Task.WaitAll(task1,task2,task3); // it is really not the best case to use multithreading here 
 
                 imgs.AddRange(task1.Result);
                 imgs.AddRange(task2.Result);
                 imgs.AddRange(task3.Result);
             }
         }
+        // this code isn't thread-safe!!
         private List<Image> getBuferedPart(int startPos, int endPos) {
-            List<Image> imgs = new List<Image>();
+            List<Image> imgs = new List<Image>(); 
             Image img = new Image();
             for (int i = startPos; i < endPos; i++)
             {
