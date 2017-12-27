@@ -30,11 +30,6 @@ namespace VkWPF.Windows
             frameMain.Content = new Pages.PageUserInfo();
         }
 
-        private void btnSettings_Click(object sender, RoutedEventArgs e)
-        {
-            frameMain.Content = new Pages.PageSettings(); 
-        }
-
         private void StartWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Environment.Exit(0);

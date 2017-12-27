@@ -19,7 +19,6 @@
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button x:Name ="btnUserInfo"  Content="Аккаунт" Click="btnUserInfo_Click" />
-            <Button x:Name ="btnSettings"  Content="Налаштування" Click="btnSettings_Click" />
             <Button x:Name ="btnChangeUser"  Content="Змінити користувача" Click="btnChangeUser_Click" />
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
